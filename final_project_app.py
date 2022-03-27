@@ -66,7 +66,7 @@ goal = st.radio(
 if goal == 'Maintain Weight':
      st.write('You selected Maintain Weight!')
 else:
-     st.write('You selected Change Weight!, please input your goal weight below in kilograms)')
+     st.write('You selected Change Weight! Please input your goal weight below in kilograms')
    
 # Please input your goal weight
 weight_goal = st.slider('Input goal weight', 0, 250, 125) # Question, Min, Max, Default Value
