@@ -39,7 +39,7 @@ if gender == 'Male':
 else:
      st.write('You selected Female')
 
-    # Q4: Please input your age (yrs)
+# Q4: Please input your age (yrs)
 age = st.slider('How old are you, in years?', 0, 100, 50) # Question, Min, Max, Default Value
 st.write("Your age is", age, 'years')
 
