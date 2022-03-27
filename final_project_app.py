@@ -51,11 +51,12 @@ else:
 
 # Lookup avg_workout_cals_1hr from DB
 avg_workout_cals_1hr = pd.read_csv('Average_calories_burned_1hr_v2.csv')
-avg_workout_cals_1hr.set_index('Activity')
+st.table(avg_workout_cals_1hr)
+#avg_workout_cals_1hr.set_index('Activity')
 
-activity = 'Archery'
-activity_interpolator = interpolate.interp1d(avg_workout_cals_1hr.columns[1:],avg_workout_cals_1hr.loc[activity,:], fill_value = 'extrapolate')
-avg_workout_cals = activity_interpolator(weight)
+#activity = 'Archery'
+#activity_interpolator = interpolate.interp1d(avg_workout_cals_1hr.columns[1:],avg_workout_cals_1hr.loc[activity,:], fill_value = 'extrapolate')
+#avg_workout_cals = activity_interpolator(weight)
 
 type('Awesome! Now tell us what are your health goals?')
 # Please select your health goal and input your goal weight if desired
