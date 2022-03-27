@@ -3,22 +3,24 @@
 # Jamie Donahue (jmd543)
 # May 13 2022
 ##########################
-
-import streamlit as st
-import pandas as pd
-import numpy as np
-from scipy import interpolate
-
 # Make Databases
     # Macros Database
     # Exercise Video Database
     # Food Database
     # Exercise Calorie Burned Database
 
-# User Input Section on Streamlit
-type('Hello beautiful! Congratulations on starting your journey to be the best version of you! Lets get started!')
+import streamlit as st
+import pandas as pd
+import numpy as np
+from scipy import interpolate
 
-type('In order to make your personalized nutrition & fitness planner we will need just a litte information about yourself.')
+
+st.title("Happy, Heathly & You")
+
+# User Input Section on Streamlit
+st.write('Hello beautiful! Congratulations on starting your journey to be the best version of you! Lets get started!')
+
+st.write('In order to make your personalized nutrition & fitness planner we will need just a litte information about yourself.')
 # Q1: Please input your height (cms)
 height = st.slider('How tall are you, in centimeters?', 0, 250, 125) # Question, Min, Max, Default Value
 st.write("Your height is", height, 'centimeters')
@@ -54,19 +56,30 @@ activity = 'General'
 activity_interpolator = interpolate.interp1d([59.1, 70.5, 81.8, 93.2],avg_workout_cals_1hr.loc[avg_workout_cals_1hr.Activity == activity,['59.1', '70.5', '81.8', '93.2']], fill_value = 'extrapolate')
 avg_workout_cals = activity_interpolator(weight)
 
-type('Awesome! Now tell us what are your health goals?')
-# Please select your health goal and input your goal weight if desired
+st.write('Awesome! Now tell us what are your health goals?')
+# Please select your health goal
 # Option 1: Maintain weight
-# Option 2: Lose weight --> Insert goal weight (units lbs)
-# Option 3: Gain Weight --> Insert goal weight (units lbs)
+# Option 2: Change weight
+weight_goal = st.radio(
+ "Please select your health goal and input your goal weight if desired",
+ ('Maintain Weight', 'Change weight'))
+
+if weight_goal == 'Maintain Weight':
+     st.write('You selected Maintain Weight')
+else:
+     st.write('You selected Change weight')
+     type('Awesome! Now tell us what are your health goals?')
+     age = st.slider('How old are you, in years?', 0, 100, 50) # Question, Min, Max, Default Value
+        st.write("Your age is", age, 'years')
+
 
     # --> Store variable weight_goal from OP1, OP2, or OP3
     # --> Calculate variable delta_weight = weight_goal - weight_current
     # --> Calculate time_restriction (max +/-2 lbs/wk) = abs(delta_weight) / 2 * 7 (covert to days for time selection)
 
-type('Your doing amazing! That is a fabulous health goal! When would you like to achieve that by?')
+st.write('Your doing amazing! That is a fabulous health goal! When would you like to achieve that by?')
 # Please input your timeline for achieving your health goals
-type('Because we want you to achieve your health goals in a safe and sustainable manner the timeline is limited to a max weight change on +/-2 lbs per week ^u^')
+st.write('Because we want you to achieve your health goals in a safe and sustainable manner the timeline is limited to a max weight change on +/-2 lbs per week ^u^')
 # Q1: Start Date (units days)
 # Q2: End Date (units days), minimum end date based on time_restriction
 
@@ -79,16 +92,16 @@ type('Because we want you to achieve your health goals in a safe and sustainable
     # --> Calculate Daily Calorie Loss from Food Percentage = cal_change_rate * 0.25 / 7 and store variable food_cals_loss
     # --> Calculate Weekly Calorie Loss from Workout Percentage = cal_change_rate * 0.75 and store variable workout_cals_loss
 
-type('Great! Now lets talk fitness')
+st.write('Great! Now lets talk fitness')
 # Q1: How many days a week would you like to workout?
     # --> Store variable workout_days
     # --> Calculate exercise_duration = ( workout_cals_loss / workout_days / 7 ) / avg_workout_cals (average calories burned in 1hr workout based on height, weight, gender)
 
-type('Alright last question! Do you have any specific body part that you would really like to tone?')
+st.write('Alright last question! Do you have any specific body part that you would really like to tone?')
 # Options: Arms, Legs, Back, Abs, Butt, Posture
     # --> Store selection body_specific_vids
 
-type('You did it! Now sit back, relax, and wait a few seconds while we create your personalized nutrtion and fitness plan.')
+st.write('You did it! Now sit back, relax, and wait a few seconds while we create your personalized nutrtion and fitness plan.')
 # Output Daily Nutrition Plan
     # --> Calculate Alloted Daily Calories = BMR_calories - food_cals_loss and store daily_cals
     # --> Lookup Macros from DB based on daily_cals (percentage & grams of fats, proteins, and carbs)
