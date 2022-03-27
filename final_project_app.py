@@ -42,10 +42,10 @@ else:
 age = st.slider('How old are you, in years?', 0, 100, 50) # Question, Min, Max, Default Value
 st.write("Your age is", age, 'years')
 
-# --> If gender equals male
+# If gender equals male
 if gender == 'Male':
     BMR_calories = 88.362 + (13.397*weight) + (4.799*height) - (5.677*age)
-# --> If gender equals female
+# If gender equals female
 else:
     BMR_calories = 447.593 + (9.247*weight) + (3.098*height) - (4.330*age)
 
@@ -59,24 +59,29 @@ st.write('Awesome! Now tell us what are your health goals?')
 # Please select your health goal
 # Option 1: Maintain weight
 # Option 2: Change weight
-weight_goal = st.radio(
- "Please select your health goal and input your goal weight if desired",
- ('Maintain Weight', 'Change weight'))
+goal = st.radio(
+ "Please select your health goal",
+ ('Maintain Weight', 'Change Weight'))
 
-if weight_goal == 'Maintain Weight':
-     st.write('You selected Maintain Weight')
+if goal == 'Maintain Weight':
+     st.write('You selected Maintain Weight!')
 else:
-     st.write('You selected Change weight')
-        st.write('Awesome! Now tell us what are your health goals?')
-        age = st.slider('How old are you, in years?', 0, 100, 50) # Question, Min, Max, Default Value
-        st.write("Your age is", age, 'years')
+     st.write('You selected Change Weight!, please input your goal weight below in kilograms)')
+   
+# Please input your goal weight
+weight_goal = st.slider('Input goal weight', 0, 250, 125) # Question, Min, Max, Default Value
+st.write("Your weight goal is", weight_goal, 'kilograms')
 
-    # --> Store variable weight_goal from OP1, OP2, or OP3
-    # --> Calculate variable delta_weight = weight_goal - weight_current
-    # --> Calculate time_restriction (max +/-2 lbs/wk) = abs(delta_weight) / 2 * 7 (covert to days for time selection)
+# Calculate variable delta_weight & calculate time_restriction (max +/-2 lbs/wk) = abs(delta_weight) / 2 * 7 (covert to days for time selection)
+if goal == 'Change Weight':
+    delta_weight = weight_goal - weight
+    time_restriction = abs(delta_weight) / 2 * 7
+else
+    delta_weight = 0
+    time_restriction = 0
 
-st.write('Your doing amazing! That is a fabulous health goal! When would you like to achieve that by?')
 # Please input your timeline for achieving your health goals
+st.write('Your doing amazing! That is a fabulous health goal! When would you like to achieve that by?')
 st.write('Because we want you to achieve your health goals in a safe and sustainable manner the timeline is limited to a max weight change on +/-2 lbs per week ^u^')
 # Q1: Start Date (units days)
 # Q2: End Date (units days), minimum end date based on time_restriction
