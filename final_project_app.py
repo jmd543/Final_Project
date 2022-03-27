@@ -88,7 +88,7 @@ st.write('Because we want you to achieve your health goals in a safe and sustain
 time_end = st.date_input('End Date', value=datetime.datetime.now()+time_restriction, min_value=datetime.datetime.now()+time_restriction, max_value=datetime.date(2025, 12, 31))
 
 # Calculate time delta
-time_2_goal_d = (time_end - time_start).days()
+time_2_goal_d = (time_end - time_start).days
 # Convert to weeks
 time_2_goal_w = time_2_goal_d / 7
 # Calculate Weight Change Rate
