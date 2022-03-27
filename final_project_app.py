@@ -14,7 +14,6 @@ import pandas as pd
 import numpy as np
 from scipy import interpolate
 
-
 st.title("Happy, Heathly & You")
 
 # User Input Section on Streamlit
@@ -68,10 +67,9 @@ if weight_goal == 'Maintain Weight':
      st.write('You selected Maintain Weight')
 else:
      st.write('You selected Change weight')
-     type('Awesome! Now tell us what are your health goals?')
-     age = st.slider('How old are you, in years?', 0, 100, 50) # Question, Min, Max, Default Value
+        st.write('Awesome! Now tell us what are your health goals?')
+        age = st.slider('How old are you, in years?', 0, 100, 50) # Question, Min, Max, Default Value
         st.write("Your age is", age, 'years')
-
 
     # --> Store variable weight_goal from OP1, OP2, or OP3
     # --> Calculate variable delta_weight = weight_goal - weight_current
