@@ -77,14 +77,16 @@ st.write("Your weight goal is", weight_goal, 'kilograms')
 if goal == 'Change Weight':
     delta_weight = weight_goal - weight
     time_restriction = abs(delta_weight) / 2 * 7
-
+    time_restriction = datetime.timedelta(days=time_restriction)
+    
 # Please input your timeline for achieving your health goals
 # Q1: Start Date (units days)
 # Q2: End Date (units days), minimum end date based on time_restriction
 st.write('Your doing amazing! That is a fabulous health goal! When would you like to achieve that by?')
-time_start = st.date_input('Start Date', value=datetime.date(2022, 5, 13), min_value=datetime.date(2022, 5, 13), max_value=datetime.date(2022, 12, 31))
+time_start = st.date_input('Start Date', value=datetime.now(), min_value=datetime.now(), max_value=datetime.date(2022, 12, 31))
 st.write('Because we want you to achieve your health goals in a safe and sustainable manner the timeline is limited to a max weight change on +/-2 lbs per week ^u^')
-time_end = st.date_input('End Date', value=datetime.date(2022, 5, 13), min_value=datetime.date(time_start+time_restriction), max_value=datetime.date(2024, 12, 31))
+
+time_end = st.date_input('End Date', value=datetime.now()+time_restriction, min_value=datetime.now()+time_restriction, max_value=datetime.date(2024, 12, 31))
 
     # --> Calculate variable time_2_goal_d = time_end - time_start
     # --> Convert to weeks, time_2_goal_w = time_2_goal_d / 7 
