@@ -41,15 +41,15 @@ else:
 age = st.slider('How old are you, in years?', 0, 100, 50) # Question, Min, Max, Default Value
 st.write("Your age is", age, 'years')
 
-    # --> Store variable height
-    # --> Store variable weight_current
-    # --> Store variable gender
-    # --> Store variable age
-    # --> If gender equals male
-    #       BMR_calories = Insert EQ
-    # --> If gender equals female
-    #       BMR_calories = Insert EQ
-    # Lookup avg_workout_cals_1hr from DB
+# --> If gender equals male
+if gender == 'Male':
+    BMR_calories = 88.362 + (13.397 x weight) + (4.799 x height) – (5.677 x age)
+# --> If gender equals female
+else:
+    BMR_calories = 447.593 + (9.247 x weight) + (3.098 x height) – (4.330 x age)
+
+# Lookup avg_workout_cals_1hr from DB
+avg_workout_cals_1hr = pd.read_csv(Average_calories_burned_1hr.csv)
 
 type('Awesome! Now tell us what are your health goals?')
 # Please select your health goal and input your goal weight if desired
