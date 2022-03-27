@@ -76,18 +76,15 @@ st.write("Your weight goal is", weight_goal, 'kilograms')
 if goal == 'Change Weight':
     delta_weight = weight_goal - weight
     time_restriction = abs(delta_weight) / 2 * 7
-else:
-    delta_weight = 0
-    time_restriction = 0
 
 # Please input your timeline for achieving your health goals
-st.write('Your doing amazing! That is a fabulous health goal! When would you like to achieve that by?')
-st.write('Because we want you to achieve your health goals in a safe and sustainable manner the timeline is limited to a max weight change on +/-2 lbs per week ^u^')
 # Q1: Start Date (units days)
 # Q2: End Date (units days), minimum end date based on time_restriction
+st.write('Your doing amazing! That is a fabulous health goal! When would you like to achieve that by?')
+time_start = st.date_input('Start Date', value=datetime.date(2022, 5, 13), min_value=datetime.date(2022, 5, 13), max_value=datetime.date(2022, 12, 31))
+st.write('Because we want you to achieve your health goals in a safe and sustainable manner the timeline is limited to a max weight change on +/-2 lbs per week ^u^')
+time_end = st.date_input('End Date', value=datetime.date(2022, 5, 13), min_value=datetime.date(time_start+time_restriction), max_value=datetime.date(2024, 12, 31))
 
-    # --> Store variable time_start
-    # --> Store variable time_end
     # --> Calculate variable time_2_goal_d = time_end - time_start
     # --> Convert to weeks, time_2_goal_w = time_2_goal_d / 7 
     # --> Calculate Weight Change Rate = delta_weight / time_2_goal_w and store variable weight_change_rate
@@ -105,6 +102,9 @@ st.write('Alright last question! Do you have any specific body part that you wou
     # --> Store selection body_specific_vids
 
 st.write('You did it! Now sit back, relax, and wait a few seconds while we create your personalized nutrtion and fitness plan.')
+#with st.spinner('Results cooking...'):
+#    time.sleep(5)
+#st.success('Done!')
 # Output Daily Nutrition Plan
     # --> Calculate Alloted Daily Calories = BMR_calories - food_cals_loss and store daily_cals
     # --> Lookup Macros from DB based on daily_cals (percentage & grams of fats, proteins, and carbs)
@@ -118,4 +118,4 @@ st.write('You did it! Now sit back, relax, and wait a few seconds while we creat
     # --> Lookup and output fitness videos based on body_specific_vids variable
     # --> Output Helpful Exercise Database with Calories burned / hour based on weight, height, gender
 
-# Visual Setup on Streamlit
+#st.ballons()
