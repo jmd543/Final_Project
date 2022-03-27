@@ -9,8 +9,7 @@ import pandas as pd
 import numpy as np
 from scipy import interpolate
 
-# Insert Databases
-    # Average Calories burned in 1 hour
+# Make Databases
     # Macros Database
     # Exercise Video Database
     # Food Database
