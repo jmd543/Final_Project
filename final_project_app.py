@@ -14,6 +14,7 @@ import pandas as pd
 import numpy as np
 from scipy import interpolate
 import datetime
+import time
 
 st.title("Happy, Heathly & You")
 
@@ -118,6 +119,7 @@ st.write('You selected:', body_specific_vids)
     
 st.write('You did it! Now sit back, relax, and wait a few seconds while we create your personalized nutrtion and fitness plan.')
 with st.spinner('Almost there...'):
+    time.sleep(5)
     st.success('Done!')
 # Output Daily Nutrition Plan
     # --> Calculate Alloted Daily Calories = BMR_calories - food_cals_loss and store daily_cals
