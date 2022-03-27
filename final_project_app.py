@@ -49,7 +49,7 @@ else:
     BMR_calories = 447.593 + (9.247*weight) + (3.098*height) - (4.330*age)
 
 # Lookup avg_workout_cals_1hr from DB
-avg_workout_cals_1hr = pd.read_csv(Average_calories_burned_1hr.csv)
+avg_workout_cals_1hr = pd.read_csv('Average_calories_burned_1hr.csv')
 
 type('Awesome! Now tell us what are your health goals?')
 # Please select your health goal and input your goal weight if desired
