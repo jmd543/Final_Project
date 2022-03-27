@@ -51,10 +51,10 @@ else:
 
 # Lookup avg_workout_cals_1hr from DB
 avg_workout_cals_1hr = pd.read_csv('Average_calories_burned_1hr_v2.csv')
-st.table(avg_workout_cals_1hr)
 avg_workout_cals_1hr.set_index('Activity')
+st.table(avg_workout_cals_1hr)
 
-activity = 'General'
+Activity = 'General'
 activity_interpolator = interpolate.interp1d(avg_workout_cals_1hr.columns[1:],avg_workout_cals_1hr.loc[activity,:], fill_value = 'extrapolate')
 avg_workout_cals = activity_interpolator(weight)
 
