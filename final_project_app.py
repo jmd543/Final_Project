@@ -7,6 +7,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import scipy.interpolate.interp1d as interp1d
 
 # Insert Databases
     # Average Calories burned in 1 hour
@@ -50,6 +51,11 @@ else:
 
 # Lookup avg_workout_cals_1hr from DB
 avg_workout_cals_1hr = pd.read_csv('Average_calories_burned_1hr_v2.csv')
+avg_workout_cals_1hr.set_index('Activity')
+
+activity = 'Archery'
+activity_interpolator = interp1d(avg_workout_cals_1hr.columns[1:],avg_workout_cals_1hr.loc[activity,:])
+avg_workout_cals = activity_interpolator(weight)
 
 type('Awesome! Now tell us what are your health goals?')
 # Please select your health goal and input your goal weight if desired
@@ -79,7 +85,7 @@ type('Because we want you to achieve your health goals in a safe and sustainable
 type('Great! Now lets talk fitness')
 # Q1: How many days a week would you like to workout?
     # --> Store variable workout_days
-    # --> Calculate exercise_duration = ( workout_cals_loss / workout_days / 7 ) / avg_workout_cals_1hr (average calories burned in 1hr workout based on height, weight, gender)
+    # --> Calculate exercise_duration = ( workout_cals_loss / workout_days / 7 ) / avg_workout_cals (average calories burned in 1hr workout based on height, weight, gender)
 
 type('Alright last question! Do you have any specific body part that you would really like to tone?')
 # Options: Arms, Legs, Back, Abs, Butt, Posture
