@@ -76,7 +76,7 @@ st.write("Your weight goal is", weight_goal, 'kilograms')
 if goal == 'Change Weight':
     delta_weight = weight_goal - weight
     time_restriction = abs(delta_weight) / 2 * 7
-else
+else:
     delta_weight = 0
     time_restriction = 0
 
