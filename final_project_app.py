@@ -55,7 +55,7 @@ avg_workout_cals_1hr = pd.read_csv('Average_calories_burned_1hr_v2.csv')
 st.table(avg_workout_cals_1hr)
 
 activity = 'General'
-activity_interpolator = interpolate.interp1d(avg_workout_cals_1hr.columns[1:],avg_workout_cals_1hr.loc[avg_workout_cals_1hr.Activity == activity,1:], fill_value = 'extrapolate')
+activity_interpolator = interpolate.interp1d(avg_workout_cals_1hr.columns.tolist()[1:],avg_workout_cals_1hr.loc[avg_workout_cals_1hr.Activity == activity,1:], fill_value = 'extrapolate')
 avg_workout_cals = activity_interpolator(weight)
 
 type('Awesome! Now tell us what are your health goals?')
