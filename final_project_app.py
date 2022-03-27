@@ -107,7 +107,7 @@ workout_days = st.selectbox(
  ('1', '2', '3', '4', '5', '6', '7'))
 st.write('You selected:', workout_days)
 # Calculate exercise_duration
-exercise_duration = ( workout_cals_loss / workout_days / 7 ) / avg_workout_cals
+exercise_duration = ( workout_cals_loss / float(workout_days) / 7 ) / avg_workout_cals
 
 st.write('Alright last question! Do you have any specific body part that you would really like to tone?')
 # Options: Arms, Legs, Back, Abs, Butt, Posture
