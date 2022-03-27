@@ -116,13 +116,28 @@ body_specific_vids = st.selectbox(
 st.write('You selected:', body_specific_vids)
     
 st.write('You did it! Now sit back, relax, and wait a few seconds while we create your personalized nutrtion and fitness plan.')
-# Calculate Alloted Daily Calories
+# Calculate Alloted Daily Calories 
 daily_cals = BMR_calories - food_cals_loss
-# Lookup Macros from DB based on daily_cals (percentage & grams of fats, proteins, and carbs)
+# Lookup Macros from DB based on daily_cals (using recommendend 30% carbs, 40% protein, 30% fats balance)
+# Grams per calories calculated based on https://drbillsukala.com/macronutrient-calorie-gram-calculator/
+macro_db = pd.read_csv('Calorie_Marcos_DB.csv')
+macro_pro = 'Proteins'
+macro_pro_interp = interpolate.interp1d([500,1000,1500,2000,2500,3000,3500,4000],macro_db.loc[macro_db.Macros == macro_pro,['500', '1000', '1500', '2000', '2500', '3000', '3500', '4000']], fill_value = 'extrapolate')
+daily_proteins = macro_pro_interp(daily_cals)
+
+macro_db = pd.read_csv('Calorie_Marcos_DB.csv')
+macro_carb = 'Carbs'
+macro_carb_interp = interpolate.interp1d([500,1000,1500,2000,2500,3000,3500,4000],macro_db.loc[macro_db.Macros == macro_carb,['500', '1000', '1500', '2000', '2500', '3000', '3500', '4000']], fill_value = 'extrapolate')
+daily_carbs = macro_carb_interp(daily_cals)
+
+macro_db = pd.read_csv('Calorie_Marcos_DB.csv')
+macro_fat = 'Fats'
+macro_fat_interp = interpolate.interp1d([500,1000,1500,2000,2500,3000,3500,4000],macro_db.loc[macro_db.Macros == macro_fat,['500', '1000', '1500', '2000', '2500', '3000', '3500', '4000']], fill_value = 'extrapolate')
+daily_fats = macro_fat_interp(daily_cals)
 
 # Output Daily Nutrition Plan (Daily Calories, Macros, Food Database)
 st.write('Daily Calories', np.round(daily_cals,0))
-st.write('Daily Macros', np.round(daily_cals,0))
+st.write('Daily Macros (in grams)', np.round(daily_proteins,0), np.round(daily_carbs,0), np.round(daily_fats,0))
 st.write('Helpful Food Calorie / Macro Database', 'https://www.calorieking.com/us/en/foods/')
 
 # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration)
