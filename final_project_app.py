@@ -73,27 +73,26 @@ else:
 weight_goal = st.slider('Input goal weight', 0, 250, 125) # Question, Min, Max, Default Value
 st.write("Your weight goal is", weight_goal, 'kilograms')
 
-# Calculate variable delta_weight & calculate time_restriction (max +/-2 lbs/wk) = abs(delta_weight) / 2 * 7 (covert to days for time selection)
+# Calculate variable delta_weight & calculate time_restriction (max +/-0.909 kgs/wk) = abs(delta_weight) / 0.909 * 7 (covert to days for time selection)
 if goal == 'Change Weight':
     delta_weight = weight_goal - weight
-    time_restriction = abs(delta_weight) / 2 * 7
+    time_restriction = abs(delta_weight) / 0.909 * 7
     time_restriction = datetime.timedelta(days=time_restriction)
     
 # Please input your timeline for achieving your health goals
 # Q1: Start Date (units days)
 # Q2: End Date (units days), minimum end date based on time_restriction
-st.write('Your doing amazing! That is a fabulous health goal! When would you like to achieve that by? Please click the date box below')
+st.write('Your doing amazing! That is a fabulous health goal! When would you like to achieve that by? (please click the date box below)')
 time_start = st.date_input('Start Date', value=datetime.datetime.now(), min_value=datetime.datetime.now(), max_value=datetime.date(2022, 12, 31))
 st.write('Because we want you to achieve your health goals in a safe and sustainable manner the timeline is limited to a max weight change on +/-2 lbs per week ^u^')
-
 time_end = st.date_input('End Date', value=datetime.datetime.now()+time_restriction, min_value=datetime.datetime.now()+time_restriction, max_value=datetime.date(2024, 12, 31))
 
-    # --> Calculate variable time_2_goal_d = time_end - time_start
-    # --> Convert to weeks, time_2_goal_w = time_2_goal_d / 7 
-    # --> Calculate Weight Change Rate = delta_weight / time_2_goal_w and store variable weight_change_rate
-    # --> Calculate Calorie Change Rate = weight_change_rate * 3500 and store variable cal_change_rate
-    # --> Calculate Daily Calorie Loss from Food Percentage = cal_change_rate * 0.25 / 7 and store variable food_cals_loss
-    # --> Calculate Weekly Calorie Loss from Workout Percentage = cal_change_rate * 0.75 and store variable workout_cals_loss
+# Calculate variable time_2_goal_d = time_end - time_start
+# Convert to weeks, time_2_goal_w = time_2_goal_d / 7 
+# Calculate Weight Change Rate = delta_weight / time_2_goal_w and store variable weight_change_rate
+# Calculate Calorie Change Rate = weight_change_rate * 3500 and store variable cal_change_rate
+# Calculate Daily Calorie Loss from Food Percentage = cal_change_rate * 0.25 / 7 and store variable food_cals_loss
+# Calculate Weekly Calorie Loss from Workout Percentage = cal_change_rate * 0.75 and store variable workout_cals_loss
 
 st.write('Great! Now lets talk fitness')
 # Q1: How many days a week would you like to workout?
