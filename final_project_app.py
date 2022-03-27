@@ -6,8 +6,6 @@
 # Make Databases
     # Macros Database
     # Exercise Video Database
-    # Food Database
-    # Exercise Calorie Burned Database
 
 import streamlit as st
 import pandas as pd
@@ -118,20 +116,19 @@ body_specific_vids = st.selectbox(
 st.write('You selected:', body_specific_vids)
     
 st.write('You did it! Now sit back, relax, and wait a few seconds while we create your personalized nutrtion and fitness plan.')
-with st.spinner('Almost there...'):
-    time.sleep(5)
-    st.success('Done!')
-# Output Daily Nutrition Plan
-    # --> Calculate Alloted Daily Calories = BMR_calories - food_cals_loss and store daily_cals
-    # --> Lookup Macros from DB based on daily_cals (percentage & grams of fats, proteins, and carbs)
-    # --> Output daily_cals and Macros
-    # --> Output Helpful Food Database with Calories and Macros
+# Calculate Alloted Daily Calories
+daily_cals = BMR_calories - food_cals_loss
+# Lookup Macros from DB based on daily_cals (percentage & grams of fats, proteins, and carbs)
 
-# Output Weekly Fitness Plan
-    # --> Output Calories to Burn per week = workout_cals_loss (cals/wk)
-    # --> type('Based on your preferences that means you'll need to workout this much')
-            # --> Output workout_days (days) and approximate exercise_duration (hrs)
-    # --> Lookup and output fitness videos based on body_specific_vids variable
-    # --> Output Helpful Exercise Database with Calories burned / hour based on weight, height, gender
+# Output Daily Nutrition Plan (Daily Calories, Macros, Food Database)
+st.write('Daily Calories', daily_cals)
+st.write('Helpful Food Calorie / Macro Database', 'https://www.calorieking.com/us/en/foods/')
+
+# Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration)
+st.write('Calories to Burn (per week)', workout_cals_loss)
+st.write('Workout Days', workout_days)
+st.write('Exercise Duration (in hours)', exercise_duration)
+
+# Lookup and output fitness videos based on body_specific_vids variable
 
 #st.ballons()
