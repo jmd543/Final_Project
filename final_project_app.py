@@ -55,7 +55,6 @@ avg_workout_cals_1hr.set_index('Activity')
 st.table(avg_workout_cals_1hr)
 
 activity = 'General'
-print(avg_workout_cals_1hr)
 activity_interpolator = interpolate.interp1d(avg_workout_cals_1hr.columns[1:],avg_workout_cals_1hr.loc[activity,:], fill_value = 'extrapolate')
 avg_workout_cals = activity_interpolator(weight)
 
