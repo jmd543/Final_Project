@@ -82,7 +82,7 @@ if goal == 'Change Weight':
 # Please input your timeline for achieving your health goals
 # Q1: Start Date (units days)
 # Q2: End Date (units days), minimum end date based on time_restriction
-st.write('Your doing amazing! That is a fabulous health goal! When would you like to achieve that by?')
+st.write('Your doing amazing! That is a fabulous health goal! When would you like to achieve that by? Please click the date box below')
 time_start = st.date_input('Start Date', value=datetime.datetime.now(), min_value=datetime.datetime.now(), max_value=datetime.date(2022, 12, 31))
 st.write('Because we want you to achieve your health goals in a safe and sustainable manner the timeline is limited to a max weight change on +/-2 lbs per week ^u^')
 
