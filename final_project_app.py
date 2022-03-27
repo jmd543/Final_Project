@@ -81,7 +81,7 @@ if goal == 'Change Weight':
 # Please input your timeline for achieving your health goals
 # Q1: Start Date (units days)
 # Q2: End Date (units days), minimum end date based on time_restriction
-st.write('Your doing amazing! That is a fabulous health goal! When would you like to achieve that by? (please click the date box below)')
+st.write('Your doing amazing! That is a fabulous health goal! When would you like to achieve that by?')
 time_start = st.date_input('Start Date', value=datetime.datetime.now(), min_value=datetime.datetime.now(), max_value=datetime.date(2022, 12, 31))
 st.write('Because we want you to achieve your health goals in a safe and sustainable manner the timeline is limited to a max weight change on +/-0.909 kg per week ^u^')
 time_end = st.date_input('End Date', value=datetime.datetime.now()+time_restriction, min_value=datetime.datetime.now()+time_restriction, max_value=datetime.date(2025, 12, 31))
@@ -93,7 +93,7 @@ time_2_goal_w = time_2_goal_d / 7
 # Calculate Weight Change Rate
 weight_change_rate = delta_weight / time_2_goal_w
 # Calculate Calorie Change Rate
-cal_change_rate = weight_change_rate * 3500
+cal_change_rate = abs(weight_change_rate) * 7700
 # Calculate Daily Calorie Loss from Food Percentage
 food_cals_loss = cal_change_rate * 0.25 / 7
 # Calculate Weekly Calorie Loss from Workout Percentage
@@ -121,7 +121,8 @@ daily_cals = BMR_calories - food_cals_loss
 # Lookup Macros from DB based on daily_cals (percentage & grams of fats, proteins, and carbs)
 
 # Output Daily Nutrition Plan (Daily Calories, Macros, Food Database)
-st.write('Daily Calories', round(daily_cals,0))
+st.write('Daily Calories', np.round(daily_cals,0))
+st.write('Daily Macros', np.round(daily_cals,0))
 st.write('Helpful Food Calorie / Macro Database', 'https://www.calorieking.com/us/en/foods/')
 
 # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration)
