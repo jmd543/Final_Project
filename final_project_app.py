@@ -106,7 +106,7 @@ workout_days = st.selectbox(
  ('1', '2', '3', '4', '5', '6', '7'))
 st.write('You selected:', workout_days)
 # Calculate exercise_duration
-exercise_duration = ( workout_cals_loss / float(workout_days) / 7 ) / avg_workout_cals
+exercise_duration = (( workout_cals_loss / float(workout_days) / 7 ) / avg_workout_cals ) * 60
 
 st.write('Alright last question! Do you have any specific body part that you would really like to tone?')
 # Options: Arms, Legs, Back, Abs, Butt, Posture
@@ -128,7 +128,7 @@ st.write('Helpful Food Calorie / Macro Database', 'https://www.calorieking.com/u
 # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration)
 st.write('Calories to Burn (per week)', np.round(workout_cals_loss,0))
 st.write('Workout Days', workout_days)
-st.write('Exercise Duration (in hours)', np.round(exercise_duration,1))
+st.write('Exercise Duration (in minutes)', np.round(exercise_duration,1))
 
 # Lookup and output fitness videos based on body_specific_vids variable
 
