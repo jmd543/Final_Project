@@ -13,7 +13,7 @@ import numpy as np
 from scipy import interpolate
 import datetime
 import time
-import math as math
+import math
 
 st.title("Happy, Heathly & You")
 
