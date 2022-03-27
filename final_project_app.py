@@ -4,6 +4,10 @@
 # May 13 2022
 ##########################
 
+import pandas as pd
+import streamlit as st
+import numpy as np
+
 # Insert Databases
     # Average Calories burned in 1 hour
     # Macros Database
@@ -16,9 +20,23 @@ type('Hello beautiful! Congratulations on starting your journey to be the best v
 
 type('In order to make your personalized nutrition & fitness planner we will need just a litte information about yourself.')
 # Q1: Please input your height (cms)
+height = st.slider('How tall are you, in centimeters?', 0, 250, 125) # Question, Min, Max, Default Value
+st.write("Your height is", height, 'centimeters')
 # Q2: Please input your weight (kgs)
+weight = st.slider('How much do you weigh, in kilograms?', 0, 250, 125) # Question, Min, Max, Default Value
+st.write("Your weight is", weight, 'kilograms')
 # Q3: Please input your gender (male or female)
+gender = st.radio(
+ "What's your biological gender?",
+ ('Male', 'Female')
+
+if gender == 'Male':
+     st.write('You selected Male')
+else:
+     st.write('You selected Female')
 # Q4: Please input your age (yrs)
+age = st.slider('How old are you, in years?', 0, 100, 50) # Question, Min, Max, Default Value
+st.write("Your age is", age, 'years')
 
     # --> Store variable height
     # --> Store variable weight_current
