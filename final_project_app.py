@@ -87,8 +87,8 @@ time_start = st.date_input('Start Date', value=datetime.datetime.now(), min_valu
 st.write('Because we want you to achieve your health goals in a safe and sustainable manner the timeline is limited to a max weight change on +/-0.909 kg per week ^u^')
 time_end = st.date_input('End Date', value=datetime.datetime.now()+time_restriction, min_value=datetime.datetime.now()+time_restriction, max_value=datetime.date(2025, 12, 31))
 
-# Calculate variable
-time_2_goal_d = time_end - time_start
+# Calculate time delta
+time_2_goal_d = (time_end - time_start).days()
 # Convert to weeks
 time_2_goal_w = time_2_goal_d / 7
 # Calculate Weight Change Rate
@@ -102,13 +102,20 @@ workout_cals_loss = cal_change_rate * 0.75
 
 st.write('Great! Now lets talk fitness')
 # Q1: How many days a week would you like to workout?
-    # --> Store variable workout_days
-    # --> Calculate exercise_duration = ( workout_cals_loss / workout_days / 7 ) / avg_workout_cals (average calories burned in 1hr workout based on height, weight, gender)
+workout_days = st.selectbox(
+ 'How many days a week would you like to workout?',
+ ('1', '2', '3', '4', '5', '6', '7'))
+st.write('You selected:', workout_days)
+# Calculate exercise_duration
+exercise_duration = ( workout_cals_loss / workout_days / 7 ) / avg_workout_cals
 
 st.write('Alright last question! Do you have any specific body part that you would really like to tone?')
 # Options: Arms, Legs, Back, Abs, Butt, Posture
-    # --> Store selection body_specific_vids
-
+body_specific_vids = st.selectbox(
+ 'Select what area you would like to focus on',
+ ('Arms', 'Legs', 'Back', 'Abs', 'Butt', 'Posture'))
+st.write('You selected:', body_specific_vids)
+    
 st.write('You did it! Now sit back, relax, and wait a few seconds while we create your personalized nutrtion and fitness plan.')
 #with st.spinner('Results cooking...'):
 #    time.sleep(5)
