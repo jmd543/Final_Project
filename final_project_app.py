@@ -255,5 +255,3 @@ if goal == 'Gain Weight':
         st.video('https://www.youtube.com/watch?v=i1ZzdBgLtZg') 
     if body_specific_vids == 'Posture':
         st.video('https://www.youtube.com/watch?v=5R54QoUbbow') 
-
-st.balloons()
