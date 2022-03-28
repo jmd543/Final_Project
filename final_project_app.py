@@ -22,13 +22,13 @@ height = float(st.slider('How tall are you, in centimeters?', 0, 250, 125)) # Qu
 # Q2: Please input your weight (kgs)
 weight = float(st.slider('How much do you weigh, in kilograms?', 0, 250, 125)) # Question, Min, Max, Default Value
 
-# Q3: Please input your gender (male or female)
+# Q3: Please input your age (yrs)
+age = float(st.slider('How old are you, in years?', 0, 100, 50)) # Question, Min, Max, Default Value
+
+# Q4: Please input your gender (male or female)
 gender = st.radio(
  "What's your biological gender?",
  ('Male', 'Female'))
-
-# Q4: Please input your age (yrs)
-age = float(st.slider('How old are you, in years?', 0, 100, 50)) # Question, Min, Max, Default Value
 
 # If gender equals male
 if gender == 'Male':
