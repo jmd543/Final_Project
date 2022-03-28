@@ -162,21 +162,21 @@ st.write('If you would like some specific body part workouts though, please clic
     body_specific_vids = st.selectbox(
      'Select what area you would like to focus on',
      ('Arms', 'Legs', 'Back', 'Abs', 'Glutes', 'Posture'))
-    st.write('You selected:', body_specific_vids)
+st.write('You selected:', body_specific_vids)
 
-    # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration, Fitness Videos)
-    st.write('Requested Target Fitness Videos')
-    if body_specific_vids == 'Arms':
-        st.video('https://www.youtube.com/watch?v=hAGfBjvIRFI&list=LL&index=8')  
-    if body_specific_vids == 'Legs':
-        st.video('https://www.youtube.com/watch?v=xpzMr3nSOIE&list=LL&index=10') 
-    if body_specific_vids == 'Back':
-        st.video('https://www.youtube.com/watch?v=5hVAUMZkJq4&list=LL&index=7&t=127s') 
-    if body_specific_vids == 'Abs':
-        st.video('https://www.youtube.com/watch?v=hxjKZcOT17E&list=LL&index=9') 
-    if body_specific_vids == 'Glutes':
-        st.video('https://www.youtube.com/watch?v=i1ZzdBgLtZg') 
-    if body_specific_vids == 'Posture':
-        st.video('https://www.youtube.com/watch?v=5R54QoUbbow') 
+# Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration, Fitness Videos)
+st.write('Requested Target Fitness Videos')
+if body_specific_vids == 'Arms':
+   st.video('https://www.youtube.com/watch?v=hAGfBjvIRFI&list=LL&index=8')  
+if body_specific_vids == 'Legs':
+   st.video('https://www.youtube.com/watch?v=xpzMr3nSOIE&list=LL&index=10') 
+if body_specific_vids == 'Back':
+   st.video('https://www.youtube.com/watch?v=5hVAUMZkJq4&list=LL&index=7&t=127s') 
+if body_specific_vids == 'Abs':
+   st.video('https://www.youtube.com/watch?v=hxjKZcOT17E&list=LL&index=9') 
+if body_specific_vids == 'Glutes':
+   st.video('https://www.youtube.com/watch?v=i1ZzdBgLtZg') 
+if body_specific_vids == 'Posture':
+   st.video('https://www.youtube.com/watch?v=5R54QoUbbow') 
 
 st.balloons()
