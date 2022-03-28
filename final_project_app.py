@@ -245,9 +245,12 @@ if goal == 'Gain Weight':
     daily_fats = macro_fat_interp(daily_cals)
 
     # Output Daily Nutrition Plan (Daily Calories, Macros, Food Database)
-    st.write('BMR_calories', BMR_calories)
-    st.write('Daily Calories', np.round(daily_cals,0))
-    st.write('Daily Macros (in grams)', np.round(daily_proteins,0), np.round(daily_carbs,0), np.round(daily_fats,0))
+    col1, col2, col3, col4, col5 = st.columns(5)
+    col1.metric("BMR_calories", BMR_calories)
+    col2.metric("Daily Calories", np.round(daily_cals,0))
+    col3.metric("Daily Macros - Proteins", np.round(daily_proteins,0))
+    col4.metric("Daily Macros - Carbs", np.round(daily_carbs,0))
+    col5.metric("Daily Macros - Fats", np.round(daily_fats,0))
     st.write('Helpful Food Calorie / Macro Database', 'https://www.calorieking.com/us/en/foods/')
 
     # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration, Fitness Videos)
