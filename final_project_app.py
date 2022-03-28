@@ -189,7 +189,7 @@ if goal == 'Gain Weight':
     weight_goal = float(st.slider('Input goal weight, if appicable', 0, 250, int(goal_weight))) # Question, Min, Max, Default Value
     st.write("Your weight goal is", weight_goal, 'kilograms')
     # Calculate variable delta_weight & calculate time_restriction (max +/-0.909 kgs/wk)
-    delta_weight = weight_goal - weight
+    delta_weight = weight - weight_goal
     time_restriction = abs(delta_weight) / 0.909 * 7.0
     time_restriction = datetime.timedelta(days=time_restriction)
     
