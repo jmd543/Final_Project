@@ -74,10 +74,7 @@ if goal == 'Maintain Weight':
     body_specific_vids = st.selectbox(
      'If you would like some specific body part workouts though, please click any of the options below',
      ('Arms', 'Legs', 'Back', 'Abs', 'Glutes', 'Posture'))
-    st.write('You selected:', body_specific_vids)
-
     # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration, Fitness Videos)
-    st.write('Requested Target Fitness Videos')
     if body_specific_vids == 'Arms':
        st.video('https://www.youtube.com/watch?v=hAGfBjvIRFI&list=LL&index=8')  
     if body_specific_vids == 'Legs':
