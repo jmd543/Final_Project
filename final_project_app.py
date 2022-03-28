@@ -66,8 +66,8 @@ else:
      st.write('You selected Change Weight! Please input your goal weight below in kilograms')
      goal_weight = 125
    
-# Please input your goal weight
-weight_goal = st.slider('Input goal weight', 0, 250, goal_weight) # Question, Min, Max, Default Value
+# Please input your goal weight if nesscary
+weight_goal = st.slider('Input goal weight, if appicable', 0, 250, goal_weight) # Question, Min, Max, Default Value
 st.write("Your weight goal is", weight_goal, 'kilograms')
 
 # Calculate variable delta_weight & calculate time_restriction (max +/-0.909 kgs/wk) = abs(delta_weight) / 0.909 * 7 (covert to days for time selection)
@@ -75,7 +75,11 @@ if goal == 'Change Weight':
     delta_weight = weight_goal - weight
     time_restriction = abs(delta_weight) / 0.909 * 7
     time_restriction = datetime.timedelta(days=time_restriction)
-
+else
+    delta_weight = weight_goal - weight + 0.0001
+    time_restriction = abs(delta_weight) / 0.909 * 7
+    time_restriction = datetime.timedelta(days=time_restriction)
+   
 # Please input your timeline for achieving your health goals
 # Q1: Start Date (units days)
 # Q2: End Date (units days), minimum end date based on time_restriction
