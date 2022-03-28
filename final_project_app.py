@@ -75,7 +75,7 @@ if goal == 'Change Weight':
     delta_weight = weight_goal - weight
     time_restriction = abs(delta_weight) / 0.909 * 7
     time_restriction = datetime.timedelta(days=time_restriction)
-else
+else:
     delta_weight = weight_goal - weight + 0.0001
     time_restriction = abs(delta_weight) / 0.909 * 7
     time_restriction = datetime.timedelta(days=time_restriction)
