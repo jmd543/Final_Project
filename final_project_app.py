@@ -41,11 +41,11 @@ st.write("Your age is", age, 'years')
 # If gender equals male
 if gender == 'Male':
     BMR_calories = 88.362 + (13.397*weight) + (4.799*height) - (5.677*age)
-  st.write('BMR_calories', BMR_calories)
 # If gender equals female
 else:
     BMR_calories = 447.593 + (9.247*weight) + (3.098*height) - (4.330*age)
 
+st.write('BMR_calories', BMR_calories)
 # Lookup avg_workout_cals_1hr from DB
 avg_workout_cals_1hr = pd.read_csv('Average_calories_burned_1hr_v2.csv')
 activity = 'General'
