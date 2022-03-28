@@ -211,17 +211,6 @@ if goal == 'Gain Weight':
     cal_change_rate = weight_change_rate * 7700.0
     # Calculate Daily Calorie Loss from Food Percentage
     food_cals_loss = cal_change_rate * 0.75 / 7.0
-    # Calculate Weekly Calorie Loss from Workout Percentage
-    workout_cals_loss = cal_change_rate * 0.25
-    st.write('Great! Now lets talk fitness')
-    
-    # Q1: How many days a week would you like to workout?
-    workout_days = st.selectbox(
-     'How many days a week would you like to workout?',
-     ('1', '2', '3', '4', '5', '6', '7'))
-    st.write('You selected:', workout_days)
-    # Calculate exercise_duration
-    exercise_duration = abs( workout_cals_loss / avg_workout_cals ) * (1.0 / float(workout_days) ) * 60.0
 
     st.write('Alright last question! Do you have any specific body part that you would really like to tone?')
     # Options: Arms, Legs, Back, Abs, Glutes, Posture
