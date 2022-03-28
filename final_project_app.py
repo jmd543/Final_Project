@@ -68,6 +68,7 @@ else:
      goal_weight = 125.0
    
 # MAINTAIN WEIGHT SECTION
+if goal == 'Maintain Weight':
     st.write('You are already awesome keep doing what your doing!')
     st.write('If you would like some specific body part workouts though, please click any of the options below')
     # Options: Arms, Legs, Back, Abs, Glutes, Posture
