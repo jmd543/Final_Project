@@ -140,7 +140,7 @@ st.write('Helpful Food Calorie / Macro Database', 'https://www.calorieking.com/u
 st.write('Calories to Burn (per week)', np.round(workout_cals_loss,0))
 st.write('Workout Days', workout_days)
 st.write('Exercise Duration (in minutes)', np.round(exercise_duration,0))
-st.write(Requested Target Fitness Videos)
+st.write('Requested Target Fitness Videos')
 if body_specific_vids == 'Arms':
     st.video('https://www.youtube.com/watch?v=hAGfBjvIRFI&list=LL&index=8')  
 if body_specific_vids == 'Legs':
