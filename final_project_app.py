@@ -18,11 +18,9 @@ st.write('Hello beautiful! Congratulations on starting your journey to be the be
 st.write('In order to make your personalized nutrition & fitness planner we will need just a litte information about yourself.')
 # Q1: Please input your height (cms)
 height = float(st.slider('How tall are you, in centimeters?', 0, 250, 125)) # Question, Min, Max, Default Value
-st.write("Your height is", height, 'centimeters')
 
 # Q2: Please input your weight (kgs)
 weight = float(st.slider('How much do you weigh, in kilograms?', 0, 250, 125)) # Question, Min, Max, Default Value
-st.write("Your weight is", weight, 'kilograms')
 
 # Q3: Please input your gender (male or female)
 gender = st.radio(
@@ -36,7 +34,6 @@ else:
 
 # Q4: Please input your age (yrs)
 age = float(st.slider('How old are you, in years?', 0, 100, 50)) # Question, Min, Max, Default Value
-st.write("Your age is", age, 'years')
 
 # If gender equals male
 if gender == 'Male':
