@@ -3,10 +3,6 @@
 # Jamie Donahue (jmd543)
 # May 13 2022
 ##########################
-# Make Databases
-    # Macros Database
-    # Exercise Video Database
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -140,11 +136,22 @@ st.write('Daily Calories', np.round(daily_cals,0))
 st.write('Daily Macros (in grams)', np.round(daily_proteins,0), np.round(daily_carbs,0), np.round(daily_fats,0))
 st.write('Helpful Food Calorie / Macro Database', 'https://www.calorieking.com/us/en/foods/')
 
-# Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration)
+# Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration, Fitness Videos)
 st.write('Calories to Burn (per week)', np.round(workout_cals_loss,0))
 st.write('Workout Days', workout_days)
-st.write('Exercise Duration (in minutes)', np.round(exercise_duration,1))
+st.write('Exercise Duration (in minutes)', np.round(exercise_duration,0))
+st.write(Requested Target Fitness Videos)
+if body_specific_vids == 'Arms':
+    st.video('https://www.youtube.com/watch?v=hAGfBjvIRFI&list=LL&index=8')  
+if body_specific_vids == 'Legs':
+    st.video('https://www.youtube.com/watch?v=xpzMr3nSOIE&list=LL&index=10') 
+if body_specific_vids == 'Back':
+    st.video('https://www.youtube.com/watch?v=5hVAUMZkJq4&list=LL&index=7&t=127s') 
+if body_specific_vids == 'Abs':
+    st.video('https://www.youtube.com/watch?v=hxjKZcOT17E&list=LL&index=9') 
+if body_specific_vids == 'Butt':
+    st.video('https://www.youtube.com/watch?v=i1ZzdBgLtZg') 
+if body_specific_vids == 'Posture':
+    st.video('https://www.youtube.com/watch?v=5R54QoUbbow') 
 
-# Lookup and output fitness videos based on body_specific_vids variable
-
-#st.ballons()
+st.ballons()
