@@ -17,11 +17,11 @@ st.write('Hello beautiful! Congratulations on starting your journey to be the be
 
 st.write('In order to make your personalized nutrition & fitness planner we will need just a litte information about yourself.')
 # Q1: Please input your height (cms)
-height = st.slider('How tall are you, in centimeters?', 0, 250, 125) # Question, Min, Max, Default Value
+height = float(st.slider('How tall are you, in centimeters?', 0, 250, 125)) # Question, Min, Max, Default Value
 st.write("Your height is", height, 'centimeters')
 
 # Q2: Please input your weight (kgs)
-weight = st.slider('How much do you weigh, in kilograms?', 0, 250, 125) # Question, Min, Max, Default Value
+weight = float(st.slider('How much do you weigh, in kilograms?', 0, 250, 125)) # Question, Min, Max, Default Value
 st.write("Your weight is", weight, 'kilograms')
 
 # Q3: Please input your gender (male or female)
@@ -35,7 +35,7 @@ else:
      st.write('You selected Female')
 
 # Q4: Please input your age (yrs)
-age = st.slider('How old are you, in years?', 0, 100, 50) # Question, Min, Max, Default Value
+age = float(st.slider('How old are you, in years?', 0, 100, 50)) # Question, Min, Max, Default Value
 st.write("Your age is", age, 'years')
 
 # If gender equals male
@@ -64,16 +64,16 @@ if goal == 'Maintain Weight':
      goal_weight = weight
 else:
      st.write('You selected Change Weight! Please input your goal weight below in kilograms')
-     goal_weight = 125
+     goal_weight = 125.0
    
 # Please input your goal weight if nesscary
-weight_goal = st.slider('Input goal weight, if appicable', 0, 250, goal_weight) # Question, Min, Max, Default Value
+weight_goal = float(st.slider('Input goal weight, if appicable', 0, 250, goal_weight)) # Question, Min, Max, Default Value
 st.write("Your weight goal is", weight_goal, 'kilograms')
 
 # Calculate variable delta_weight & calculate time_restriction (max +/-0.909 kgs/wk) = abs(delta_weight) / 0.909 * 7 (covert to days for time selection)
 if goal == 'Change Weight':
     delta_weight = weight_goal - weight
-    time_restriction = abs(delta_weight) / 0.909 * 7
+    time_restriction = abs(delta_weight) / 0.909 * 7.0
     time_restriction = datetime.timedelta(days=time_restriction)
     
     # Please input your timeline for achieving your health goals
@@ -84,25 +84,31 @@ if goal == 'Change Weight':
     st.write('Because we want you to achieve your health goals in a safe and sustainable manner the timeline is limited to a max weight change on +/-0.909 kg per week ^u^')
     time_end = st.date_input('End Date', value=datetime.datetime.now()+time_restriction, min_value=datetime.datetime.now()+time_restriction, max_value=datetime.date(2025, 12, 31))
     # Calculate time delta
-    time_2_goal_d = (time_end - time_start).days
+    time_2_goal_d = float((time_end - time_start).days)
     # Convert to weeks
-    time_2_goal_w = time_2_goal_d / 7
+    time_2_goal_w = time_2_goal_d / 7.0
     # Calculate Weight Change Rate
     weight_change_rate = delta_weight / time_2_goal_w
     # Calculate Calorie Change Rate
-    cal_change_rate = weight_change_rate * 7700
+    cal_change_rate = weight_change_rate * 7700.0
     # Calculate Daily Calorie Loss from Food Percentage
-    food_cals_loss = cal_change_rate * 0.25 / 7
-    # Calculate Weekly Calorie Loss from Workout Percentage
-    workout_cals_loss = cal_change_rate * 0.75
-    st.write('Great! Now lets talk fitness')
+    if cal_change_rate > 0.0:
+      food_cals_loss = cal_change_rate * 0.25 / 7.0
+      # Calculate Weekly Calorie Loss from Workout Percentage
+      workout_cals_loss = cal_change_rate * 0.75
+      st.write('Great! Now lets talk fitness')
+    else:
+       food_cals_loss = cal_change_rate * 0.75 / 7.0
+       # Calculate Weekly Calorie Loss from Workout Percentage
+       workout_cals_loss = cal_change_rate * 0.25
+       st.write('Great! Now lets talk fitness')
     # Q1: How many days a week would you like to workout?
     workout_days = st.selectbox(
      'How many days a week would you like to workout?',
      ('1', '2', '3', '4', '5', '6', '7'))
     st.write('You selected:', workout_days)
     # Calculate exercise_duration
-    exercise_duration = ( workout_cals_loss / avg_workout_cals ) * (1 / float(workout_days) ) * 60
+    exercise_duration = ( workout_cals_loss / avg_workout_cals ) * (1.0 / float(workout_days) ) * 60.0
 
     st.write('Alright last question! Do you have any specific body part that you would really like to tone?')
     # Options: Arms, Legs, Back, Abs, Glutes, Posture
