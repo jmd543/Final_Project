@@ -232,7 +232,7 @@ if goal == 'Gain Weight':
 
     st.write('You did it! Now sit back, relax, and wait a few seconds while we create your personalized nutrtion and fitness plan.')
     # Calculate Alloted Daily Calories 
-    daily_cals = BMR_calories - food_cals_loss
+    daily_cals = BMR_calories - food_cals_loss + workout_cals_loss
     # Lookup Macros from DB based on daily_cals (using recommendend 30% carbs, 40% protein, 30% fats balance)
     # Grams per calories calculated based on https://drbillsukala.com/macronutrient-calorie-gram-calculator/
     macro_db = pd.read_csv('Calorie_Marcos_DB.csv')
@@ -257,7 +257,6 @@ if goal == 'Gain Weight':
     st.write('Helpful Food Calorie / Macro Database', 'https://www.calorieking.com/us/en/foods/')
 
     # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration, Fitness Videos)
-    st.write('Calories Burned (per week)', np.round(abs(workout_cals_loss),0))
     st.write('Workout Days', workout_days)
     st.write('Exercise Duration (in minutes)', np.round(abs(exercise_duration),0))
     st.write('Requested Target Fitness Videos')
