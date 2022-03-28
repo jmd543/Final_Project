@@ -27,11 +27,6 @@ gender = st.radio(
  "What's your biological gender?",
  ('Male', 'Female'))
 
-if gender == 'Male':
-     st.write('You selected Male')
-else:
-     st.write('You selected Female')
-
 # Q4: Please input your age (yrs)
 age = float(st.slider('How old are you, in years?', 0, 100, 50)) # Question, Min, Max, Default Value
 
