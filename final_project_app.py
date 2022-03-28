@@ -69,7 +69,7 @@ else:
    
 # MAINTAIN WEIGHT SECTION
 if goal == 'Maintain Weight':
-    st.write('You are already awesome keep doing what your doing!')
+    st.title('You are already awesome keep doing what your doing!')
     st.write('If you would like some specific body part workouts though, please click any of the options below')
     # Options: Arms, Legs, Back, Abs, Glutes, Posture
     body_specific_vids = st.selectbox(
