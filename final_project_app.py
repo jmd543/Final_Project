@@ -221,7 +221,7 @@ if goal == 'Gain Weight':
      ('1', '2', '3', '4', '5', '6', '7'))
     st.write('You selected:', workout_days)
     # Calculate exercise_duration
-    exercise_duration = ( workout_cals_loss / avg_workout_cals ) * (1.0 / float(workout_days) ) * 60.0
+    exercise_duration = abs( workout_cals_loss / avg_workout_cals ) * (1.0 / float(workout_days) ) * 60.0
 
     st.write('Alright last question! Do you have any specific body part that you would really like to tone?')
     # Options: Arms, Legs, Back, Abs, Glutes, Posture
@@ -257,9 +257,9 @@ if goal == 'Gain Weight':
     st.write('Helpful Food Calorie / Macro Database', 'https://www.calorieking.com/us/en/foods/')
 
     # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration, Fitness Videos)
-    st.write('Calories to Burn (per week)', np.round(workout_cals_loss,0))
+    st.write('Calories Burned (per week)', np.round(abs(workout_cals_loss),0))
     st.write('Workout Days', workout_days)
-    st.write('Exercise Duration (in minutes)', np.round(exercise_duration,0))
+    st.write('Exercise Duration (in minutes)', np.round(abs(exercise_duration),0))
     st.write('Requested Target Fitness Videos')
     if body_specific_vids == 'Arms':
         st.video('https://www.youtube.com/watch?v=hAGfBjvIRFI&list=LL&index=8')  
