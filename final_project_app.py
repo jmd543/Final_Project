@@ -54,10 +54,11 @@ avg_workout_cals = activity_interpolator(weight)
 st.write('Awesome! Now tell us what are your health goals?')
 # Please select your health goal
 # Option 1: Maintain weight
-# Option 2: Change weight
+# Option 2: Lose weight
+# Option 3: Gain weight
 goal = st.radio(
  "Please select your health goal",
- ('Maintain Weight', 'Change Weight'))
+ ('Maintain Weight', 'Lose Weight', 'Gain Weight'))
 
 if goal == 'Maintain Weight':
      st.write('You selected Maintain Weight!')
@@ -66,12 +67,36 @@ else:
      st.write('You selected Change Weight! Please input your goal weight below in kilograms')
      goal_weight = 125.0
    
-# Please input your goal weight if nesscary
-weight_goal = float(st.slider('Input goal weight, if appicable', 0, 250, int(goal_weight))) # Question, Min, Max, Default Value
-st.write("Your weight goal is", weight_goal, 'kilograms')
+# MAINTAIN WEIGHT SECTION
+    st.write('You are already awesome keep doing what your doing!')
+    st.write('If you would like some specific body part workouts though, please click any of the options below')
+    # Options: Arms, Legs, Back, Abs, Glutes, Posture
+    body_specific_vids = st.selectbox(
+     'Select what area you would like to focus on',
+     ('Arms', 'Legs', 'Back', 'Abs', 'Glutes', 'Posture'))
+    st.write('You selected:', body_specific_vids)
 
-# Calculate variable delta_weight & calculate time_restriction (max +/-0.909 kgs/wk) = abs(delta_weight) / 0.909 * 7 (covert to days for time selection)
-if goal == 'Change Weight':
+    # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration, Fitness Videos)
+    st.write('Requested Target Fitness Videos')
+    if body_specific_vids == 'Arms':
+       st.video('https://www.youtube.com/watch?v=hAGfBjvIRFI&list=LL&index=8')  
+    if body_specific_vids == 'Legs':
+       st.video('https://www.youtube.com/watch?v=xpzMr3nSOIE&list=LL&index=10') 
+    if body_specific_vids == 'Back':
+       st.video('https://www.youtube.com/watch?v=5hVAUMZkJq4&list=LL&index=7&t=127s') 
+    if body_specific_vids == 'Abs':
+       st.video('https://www.youtube.com/watch?v=hxjKZcOT17E&list=LL&index=9') 
+    if body_specific_vids == 'Glutes':
+       st.video('https://www.youtube.com/watch?v=i1ZzdBgLtZg') 
+    if body_specific_vids == 'Posture':
+       st.video('https://www.youtube.com/watch?v=5R54QoUbbow') 
+      
+# LOSE WEIGHT SECTION
+if goal == 'Lose Weight':
+    # Please input your goal weight if nesscary
+    weight_goal = float(st.slider('Input goal weight, if appicable', 0, 250, int(goal_weight))) # Question, Min, Max, Default Value
+    st.write("Your weight goal is", weight_goal, 'kilograms')
+    # Calculate variable delta_weight & calculate time_restriction (max +/-0.909 kgs/wk)
     delta_weight = weight_goal - weight
     time_restriction = abs(delta_weight) / 0.909 * 7.0
     time_restriction = datetime.timedelta(days=time_restriction)
@@ -83,6 +108,7 @@ if goal == 'Change Weight':
     time_start = st.date_input('Start Date', value=datetime.datetime.now(), min_value=datetime.datetime.now(), max_value=datetime.date(2022, 12, 31))
     st.write('Because we want you to achieve your health goals in a safe and sustainable manner the timeline is limited to a max weight change on +/-0.909 kg per week ^u^')
     time_end = st.date_input('End Date', value=datetime.datetime.now()+time_restriction, min_value=datetime.datetime.now()+time_restriction, max_value=datetime.date(2025, 12, 31))
+    
     # Calculate time delta
     time_2_goal_d = float((time_end - time_start).days)
     # Convert to weeks
@@ -92,16 +118,11 @@ if goal == 'Change Weight':
     # Calculate Calorie Change Rate
     cal_change_rate = weight_change_rate * 7700.0
     # Calculate Daily Calorie Loss from Food Percentage
-    if cal_change_rate > 0.0:
-      food_cals_loss = cal_change_rate * 0.25 / 7.0
-      # Calculate Weekly Calorie Loss from Workout Percentage
-      workout_cals_loss = cal_change_rate * 0.75
-      st.write('Great! Now lets talk fitness')
-    else:
-       food_cals_loss = cal_change_rate * 0.75 / 7.0
-       # Calculate Weekly Calorie Loss from Workout Percentage
-       workout_cals_loss = cal_change_rate * 0.25
-       st.write('Great! Now lets talk fitness')
+    food_cals_loss = cal_change_rate * 0.25 / 7.0
+    # Calculate Weekly Calorie Loss from Workout Percentage
+    workout_cals_loss = cal_change_rate * 0.75
+    st.write('Great! Now lets talk fitness')
+    
     # Q1: How many days a week would you like to workout?
     workout_days = st.selectbox(
      'How many days a week would you like to workout?',
@@ -160,29 +181,5 @@ if goal == 'Change Weight':
         st.video('https://www.youtube.com/watch?v=i1ZzdBgLtZg') 
     if body_specific_vids == 'Posture':
         st.video('https://www.youtube.com/watch?v=5R54QoUbbow') 
-  
-else:
-    st.write('You are already awesome keep doing what your doing!')
-    st.write('If you would like some specific body part workouts though, please click any of the options below')
-    # Options: Arms, Legs, Back, Abs, Glutes, Posture
-    body_specific_vids = st.selectbox(
-     'Select what area you would like to focus on',
-     ('Arms', 'Legs', 'Back', 'Abs', 'Glutes', 'Posture'))
-    st.write('You selected:', body_specific_vids)
-
-    # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration, Fitness Videos)
-    st.write('Requested Target Fitness Videos')
-    if body_specific_vids == 'Arms':
-       st.video('https://www.youtube.com/watch?v=hAGfBjvIRFI&list=LL&index=8')  
-    if body_specific_vids == 'Legs':
-       st.video('https://www.youtube.com/watch?v=xpzMr3nSOIE&list=LL&index=10') 
-    if body_specific_vids == 'Back':
-       st.video('https://www.youtube.com/watch?v=5hVAUMZkJq4&list=LL&index=7&t=127s') 
-    if body_specific_vids == 'Abs':
-       st.video('https://www.youtube.com/watch?v=hxjKZcOT17E&list=LL&index=9') 
-    if body_specific_vids == 'Glutes':
-       st.video('https://www.youtube.com/watch?v=i1ZzdBgLtZg') 
-    if body_specific_vids == 'Posture':
-       st.video('https://www.youtube.com/watch?v=5R54QoUbbow') 
 
 st.balloons()
