@@ -154,4 +154,4 @@ if body_specific_vids == 'Butt':
 if body_specific_vids == 'Posture':
     st.video('https://www.youtube.com/watch?v=5R54QoUbbow') 
 
-st.ballons()
+st.balloons()
