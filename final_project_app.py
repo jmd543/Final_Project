@@ -161,11 +161,11 @@ if goal == 'Lose Weight':
 
     # Output Daily Nutrition Plan (Daily Calories, Macros, Food Database)
     col1, col2, col3, col4, col5 = st.columns(5)
-    col1.metric("BMR_calories", "BMR_calories")
-    col2.metric("Daily Calories", "np.round(daily_cals,0)")
-    col3.metric("Daily Macros - Proteins", "np.round(daily_proteins,0)")
-    col4.metric("Daily Macros - Carbs", "np.round(daily_carbs,0)")
-    col5.metric("Daily Macros - Fats", "np.round(daily_fats,0)")
+    col1.metric("BMR_calories", BMR_calories)
+    col2.metric("Daily Calories", np.round(daily_cals,0))
+    col3.metric("Daily Macros - Proteins", np.round(daily_proteins,0))
+    col4.metric("Daily Macros - Carbs", np.round(daily_carbs,0))
+    col5.metric("Daily Macros - Fats", np.round(daily_fats,0))
     
     #st.write('BMR_calories', BMR_calories)
     #st.write('Daily Calories', np.round(daily_cals,0))
