@@ -10,12 +10,13 @@ from scipy import interpolate
 import datetime
 import time
 
-st.sidebar.st.title("Happy, Heathly & You")
+st.title("Happy, Heathly & You")
 
 # User Input Section on Streamlit
 st.subheader('*Hello beautiful! Congratulations on starting your journey to be the best version of you! Lets get started!*')
 
 # Q1: Please input your height (cms)
+with st.sidebar:
 height = float(st.slider('How tall are you, in centimeters?', 0, 250, 125)) # Question, Min, Max, Default Value
 
 # Q2: Please input your weight (kgs)
