@@ -117,10 +117,10 @@ if goal == 'Lose Weight':
     # Options: Arms, Legs, Back, Abs, Glutes, Posture
     with st.sidebar:
         body_specific_vids = st.selectbox(
-         'Do you have any specific body part that you would really like to tone? Select what area you would like to focus on',
+         'Do you have a specific body part that you would really like to tone? Select it below',
          ('Arms', 'Legs', 'Back', 'Abs', 'Glutes', 'Posture'))
 
-    st.subheader('You did it! Now sit back, relax, and wait a few seconds while we create your personalized nutrtion and fitness plan.')
+    st.title('*You did it! Here is your personalized nutrtion and fitness plan! Good luck!*')
     # Calculate Alloted Daily Calories 
     daily_cals = BMR_calories - food_cals_loss
     # Lookup Macros from DB based on daily_cals (using recommendend 30% carbs, 40% protein, 30% fats balance)
