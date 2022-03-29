@@ -12,8 +12,8 @@ import time
 
 # USER INPUT SECTION
 with st.sidebar:
-    st.title("Happy, Heathly & You")
-    st.subheader('*Hello beautiful! Congratulations on starting your journey to be the best version of you! Lets get started!*')
+    st.title("*Happy, Heathly & You*")
+    st.subheader('Hello beautiful! Congratulations on starting your journey to be the best version of you! Lets get started!')
     
     # Q1: Please input your height (cms)
     height = float(st.slider('How tall are you, in centimeters?', 0, 250, 125)) # Question, Min, Max, Default Value
