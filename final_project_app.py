@@ -48,7 +48,7 @@ with st.sidebar:
 if goal == 'Maintain Weight':
      goal_weight = weight
 else:
-     goal_weight = 125.0
+     goal_weight = weight - 1.0
    
 # MAINTAIN WEIGHT SECTION
 if goal == 'Maintain Weight':
