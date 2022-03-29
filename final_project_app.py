@@ -106,9 +106,9 @@ if goal == 'Lose Weight':
     # Calculate Calorie Change Rate
     cal_change_rate = abs(weight_change_rate) * 7700.0
     # Calculate Daily Calorie Loss from Food Percentage
-    food_cals_loss = cal_change_rate * 0.25 / 7.0
+    food_cals_loss = cal_change_rate * 0.50 / 7.0
     # Calculate Weekly Calorie Loss from Workout Percentage
-    workout_cals_loss = cal_change_rate * 0.75
+    workout_cals_loss = cal_change_rate * 0.50
     st.write('Great! Now lets talk fitness')
     
     # Q1: How many days a week would you like to workout?
