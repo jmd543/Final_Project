@@ -141,13 +141,13 @@ if goal == 'Lose Weight':
     daily_fats = macro_fat_interp(daily_cals)
 
     # Output Daily Nutrition Plan (Daily Calories, Macros, Food Database)
-    col1, col2, col3, col4, col5 = st.columns(5)
-    col1.metric("BMR_calories", BMR_calories)
-    col2.metric("Daily Calories", np.round(daily_cals,0))
-    col3.metric("Daily Macros - Proteins", np.round(daily_proteins,0))
-    col4.metric("Daily Macros - Carbs", np.round(daily_carbs,0))
-    col5.metric("Daily Macros - Fats", np.round(daily_fats,0))
-    st.write('Helpful Food Calorie / Macro Database', 'https://www.calorieking.com/us/en/foods/')
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.image('https://icon-library.com/icon/calories-icon-0.html')
+        col1.metric("Daily Calories", np.round(daily_cals,0))
+    col2.metric("Daily Proteins (g)", np.round(daily_proteins,0))
+    col3.metric("Daily Carbs (g)", np.round(daily_carbs,0))
+    col4.metric("Daily Fats (g)", np.round(daily_fats,0))
 
     # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration, Fitness Videos)
     col1, col2, col3 = st.columns(3)
@@ -155,7 +155,8 @@ if goal == 'Lose Weight':
     col2.metric("Workout Days", workout_days)
     col3.metric("Exercise Duration (in minutes)", np.round(exercise_duration,0))
    
-    st.write('Requested Target Fitness Videos')
+    st.subheader('Helpful Food Calorie / Macro Database', 'https://www.calorieking.com/us/en/foods/')
+    
     if body_specific_vids == 'Arms':
         st.video('https://www.youtube.com/watch?v=hAGfBjvIRFI&list=LL&index=8')  
     if body_specific_vids == 'Legs':
