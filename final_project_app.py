@@ -6,7 +6,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from scipy import interpolate
+#from scipy import interpolate
 import datetime
 import time
 
