@@ -143,7 +143,7 @@ if goal == 'Lose Weight':
     # Output Daily Nutrition Plan (Daily Calories, Macros, Food Database)
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        st.image('https://icon-library.com/icon/calories-icon-0.html')
+        st.image("https://www.flaticon.com/free-icon/calories_1240772")
         col1.metric("Daily Calories", np.round(daily_cals,0))
     col2.metric("Daily Proteins (g)", np.round(daily_proteins,0))
     col3.metric("Daily Carbs (g)", np.round(daily_carbs,0))
