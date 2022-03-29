@@ -10,7 +10,7 @@ from scipy import interpolate
 import datetime
 import time
 
-st.title("Happy, Heathly & You")
+st.sidebar.st.title("Happy, Heathly & You")
 
 # User Input Section on Streamlit
 st.subheader('*Hello beautiful! Congratulations on starting your journey to be the best version of you! Lets get started!*')
