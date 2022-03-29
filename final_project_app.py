@@ -86,9 +86,9 @@ if goal == 'Lose Weight':
     # Q1: Start Date (units days)
     # Q2: End Date (units days), minimum end date based on time_restriction
     with st.sidebar:
-        st.subheader('Your doing amazing! That is a fabulous health goal! When would you like to achieve that by?')
+        st.subheader('That is a fabulous health goal! When would you like to achieve that by?')
         time_start = st.date_input('Start Date', value=datetime.datetime.now(), min_value=datetime.datetime.now(), max_value=datetime.date(2022, 12, 31))
-        st.subheader('To keep you safe during your journey, the earliest end date is limited too a max weight change of +/-0.909 kg per week ^u^')
+        st.write('*To keep you safe during your journey, the earliest end date is limited too a max weight change of +/-0.909 kg per week ^u^*')
         time_end = st.date_input('End Date', value=datetime.datetime.now()+time_restriction, min_value=datetime.datetime.now()+time_restriction, max_value=datetime.date(2025, 12, 31))
 
     # Calculate time delta
