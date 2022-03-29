@@ -174,9 +174,9 @@ if goal == 'Lose Weight':
 
 # GAIN WEIGHT SECTION
 if goal == 'Gain Weight':
-    # Please input your goal weight if nesscary
-    weight_goal = float(st.slider('Input goal weight, if appicable', 0, 250, int(goal_weight))) # Question, Min, Max, Default Value
-    st.write("Your weight goal is", weight_goal, 'kilograms')
+    with st.sidebar:
+        # Please input your goal weight if nesscary
+        weight_goal = float(st.slider('Input goal weight, if appicable', 0, 250, int(goal_weight))) # Question, Min, Max, Default Value
     # Calculate variable delta_weight & calculate time_restriction (max +/-0.909 kgs/wk)
     delta_weight = weight - weight_goal
     time_restriction = abs(delta_weight) / 0.909 * 7.0
@@ -185,10 +185,11 @@ if goal == 'Gain Weight':
     # Please input your timeline for achieving your health goals
     # Q1: Start Date (units days)
     # Q2: End Date (units days), minimum end date based on time_restriction
-    st.write('Your doing amazing! That is a fabulous health goal! When would you like to achieve that by?')
-    time_start = st.date_input('Start Date', value=datetime.datetime.now(), min_value=datetime.datetime.now(), max_value=datetime.date(2022, 12, 31))
-    st.write('Because we want you to achieve your health goals in a safe and sustainable manner the timeline is limited to a max weight change on +/-0.909 kg per week ^u^')
-    time_end = st.date_input('End Date', value=datetime.datetime.now()+time_restriction, min_value=datetime.datetime.now()+time_restriction, max_value=datetime.date(2025, 12, 31))
+    with st.sidebar:
+        st.subheader('That is a fabulous health goal! When would you like to achieve that by?')
+        time_start = st.date_input('Start Date', value=datetime.datetime.now(), min_value=datetime.datetime.now(), max_value=datetime.date(2022, 12, 31))
+        st.write('Because we want you to achieve your health goals in a safe and sustainable manner the timeline is limited to a max weight change on +/-0.909 kg per week ^u^')
+        time_end = st.date_input('End Date', value=datetime.datetime.now()+time_restriction, min_value=datetime.datetime.now()+time_restriction, max_value=datetime.date(2025, 12, 31))
     
     # Calculate time delta
     time_2_goal_d = float((time_end - time_start).days)
@@ -201,14 +202,14 @@ if goal == 'Gain Weight':
     # Calculate Daily Calorie Loss from Food Percentage
     food_cals_loss = cal_change_rate * 0.75 / 7.0
 
-    st.write('Alright last question! Do you have any specific body part that you would really like to tone?')
     # Options: Arms, Legs, Back, Abs, Glutes, Posture
-    body_specific_vids = st.selectbox(
-     'Select what area you would like to focus on',
-     ('Arms', 'Legs', 'Back', 'Abs', 'Glutes', 'Posture'))
-    st.write('You selected:', body_specific_vids)
+    with st.sidebar:
+        body_specific_vids = st.selectbox(
+         'Do you have a specific body part that you would really like to tone? Select it below',
+         ('Arms', 'Legs', 'Back', 'Abs', 'Glutes', 'Posture'))
 
-    st.write('You did it! Now sit back, relax, and wait a few seconds while we create your personalized nutrtion and fitness plan.')
+    st.title('*You did it! Here is your personalized nutrtion and fitness plan! Good luck!*')
+    
     # Calculate Alloted Daily Calories 
     daily_cals = BMR_calories - food_cals_loss
     # Lookup Macros from DB based on daily_cals (using recommendend 30% carbs, 40% protein, 30% fats balance)
@@ -229,16 +230,17 @@ if goal == 'Gain Weight':
     daily_fats = macro_fat_interp(daily_cals)
 
     # Output Daily Nutrition Plan (Daily Calories, Macros, Food Database)
-    col1, col2, col3, col4, col5 = st.columns(5)
-    col1.metric("BMR_calories", BMR_calories)
-    col2.metric("Daily Calories", np.round(daily_cals,0))
-    col3.metric("Daily Macros - Proteins", np.round(daily_proteins,0))
-    col4.metric("Daily Macros - Carbs", np.round(daily_carbs,0))
-    col5.metric("Daily Macros - Fats", np.round(daily_fats,0))
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.image('https://github.com/jmd543/Final_Project/blob/main/Calories_icon.png')
+        col1.metric("Daily Calories", np.round(daily_cals,0))
+    col2.metric("Daily Proteins (g)", np.round(daily_proteins,0))
+    col3.metric("Daily Carbs (g)", np.round(daily_carbs,0))
+    col4.metric("Daily Fats (g)", np.round(daily_fats,0))
+    
     st.write('Helpful Food Calorie / Macro Database', 'https://www.calorieking.com/us/en/foods/')
 
     # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration, Fitness Videos)
-    st.write('Requested Target Fitness Videos')
     if body_specific_vids == 'Arms':
         st.video('https://www.youtube.com/watch?v=hAGfBjvIRFI&list=LL&index=8')  
     if body_specific_vids == 'Legs':
