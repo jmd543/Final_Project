@@ -40,7 +40,6 @@ activity_interpolator = interpolate.interp1d([59.1, 70.5, 81.8, 93.2],avg_workou
 avg_workout_cals = activity_interpolator(weight)
 
 with st.sidebar:
-    st.write('Awesome! Now tell us what are your health goals?')
     # Please select your health goal
     goal = st.radio(
      "Please select your health goal",
