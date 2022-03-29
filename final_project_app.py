@@ -116,9 +116,9 @@ if goal == 'Lose Weight':
 
     # Options: Arms, Legs, Back, Abs, Glutes, Posture
     with st.sidebar:
-    body_specific_vids = st.selectbox(
-     'Do you have any specific body part that you would really like to tone? Select what area you would like to focus on',
-     ('Arms', 'Legs', 'Back', 'Abs', 'Glutes', 'Posture'))
+        body_specific_vids = st.selectbox(
+         'Do you have any specific body part that you would really like to tone? Select what area you would like to focus on',
+         ('Arms', 'Legs', 'Back', 'Abs', 'Glutes', 'Posture'))
 
     st.subheader('You did it! Now sit back, relax, and wait a few seconds while we create your personalized nutrtion and fitness plan.')
     # Calculate Alloted Daily Calories 
