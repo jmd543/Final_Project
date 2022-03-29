@@ -109,8 +109,8 @@ if goal == 'Lose Weight':
         st.subheader('Great! Now lets talk fitness')
         workout_days = st.selectbox(
          'How many days a week would you like to workout?',
-         ('1', '2', '3', '4', '5', '6', '7'))
-        st.write('You selected:', workout_days)
+          ('1', '2', '3', '4', '5', '6', '7'))
+
     # Calculate exercise_duration
     exercise_duration = ( workout_cals_loss / avg_workout_cals ) * (1.0 / float(workout_days) ) * 60.0
 
