@@ -48,9 +48,7 @@ with st.sidebar:
 if goal == 'Maintain Weight':
      goal_weight = weight
 else:
-     with st.sidebar:
-         st.write('Please input your goal weight below in kilograms')
-         goal_weight = 125.0
+     goal_weight = 125.0
    
 # MAINTAIN WEIGHT SECTION
 if goal == 'Maintain Weight':
@@ -75,9 +73,9 @@ if goal == 'Maintain Weight':
       
 # LOSE WEIGHT SECTION
 if goal == 'Lose Weight':
-    # Please input your goal weight if nesscary
-    weight_goal = float(st.slider('Input goal weight, if appicable', 0, 250, int(goal_weight))) # Question, Min, Max, Default Value
-    st.write("Your weight goal is", weight_goal, 'kilograms')
+    with st.sidebar:
+        # Please input your goal weight if nesscary
+        weight_goal = float(st.slider('Input goal weight, if appicable', 0, 250, int(goal_weight))) # Question, Min, Max, Default Value
     # Calculate variable delta_weight & calculate time_restriction (max +/-0.909 kgs/wk)
     delta_weight = weight_goal - weight
     time_restriction = abs(delta_weight) / 0.909 * 7.0
@@ -86,11 +84,12 @@ if goal == 'Lose Weight':
     # Please input your timeline for achieving your health goals
     # Q1: Start Date (units days)
     # Q2: End Date (units days), minimum end date based on time_restriction
-    st.write('Your doing amazing! That is a fabulous health goal! When would you like to achieve that by?')
-    time_start = st.date_input('Start Date', value=datetime.datetime.now(), min_value=datetime.datetime.now(), max_value=datetime.date(2022, 12, 31))
-    st.write('Because we want you to achieve your health goals in a safe and sustainable manner the timeline is limited to a max weight change on +/-0.909 kg per week ^u^')
-    time_end = st.date_input('End Date', value=datetime.datetime.now()+time_restriction, min_value=datetime.datetime.now()+time_restriction, max_value=datetime.date(2025, 12, 31))
-    
+    with st.sidebar:
+        st.subheader('Your doing amazing! That is a fabulous health goal! When would you like to achieve that by?')
+        time_start = st.date_input('Start Date', value=datetime.datetime.now(), min_value=datetime.datetime.now(), max_value=datetime.date(2022, 12, 31))
+        st.write('To keep you safe during your journey, the earliest end date is limited too a max weight change of +/-0.909 kg per week ^u^')
+        time_end = st.date_input('End Date', value=datetime.datetime.now()+time_restriction, min_value=datetime.datetime.now()+time_restriction, max_value=datetime.date(2025, 12, 31))
+
     # Calculate time delta
     time_2_goal_d = float((time_end - time_start).days)
     # Convert to weeks
