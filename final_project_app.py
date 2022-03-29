@@ -47,7 +47,6 @@ with st.sidebar:
      ('Maintain Weight', 'Lose Weight', 'Gain Weight'))
 
 if goal == 'Maintain Weight':
-     st.write('You selected Maintain Weight!')
      goal_weight = weight
 else:
      st.write('You selected Change Weight! Please input your goal weight below in kilograms')
