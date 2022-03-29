@@ -10,25 +10,21 @@ from scipy import interpolate
 import datetime
 import time
 
-st.title("Happy, Heathly & You")
-
-# User Input Section on Streamlit
-st.subheader('*Hello beautiful! Congratulations on starting your journey to be the best version of you! Lets get started!*')
-
-# Q1: Please input your height (cms)
+# USER INPUT SECTION
 with st.sidebar:
+    st.title("Happy, Heathly & You")
+    st.subheader('*Hello beautiful! Congratulations on starting your journey to be the best version of you! Lets get started!*')
+    
+    # Q1: Please input your height (cms)
     height = float(st.slider('How tall are you, in centimeters?', 0, 250, 125)) # Question, Min, Max, Default Value
-
-# Q2: Please input your weight (kgs)
-weight = float(st.slider('How much do you weigh, in kilograms?', 0, 250, 125)) # Question, Min, Max, Default Value
-
-# Q3: Please input your age (yrs)
-age = float(st.slider('How old are you, in years?', 0, 100, 50)) # Question, Min, Max, Default Value
-
-# Q4: Please input your gender (male or female)
-gender = st.radio(
- "What's your biological gender?",
- ('Male', 'Female'))
+    # Q2: Please input your weight (kgs)
+    weight = float(st.slider('How much do you weigh, in kilograms?', 0, 250, 125)) # Question, Min, Max, Default Value
+    # Q3: Please input your age (yrs)
+    age = float(st.slider('How old are you, in years?', 0, 100, 50)) # Question, Min, Max, Default Value
+    # Q4: Please input your gender (male or female)
+    gender = st.radio(
+     "What's your biological gender?",
+     ('Male', 'Female'))
 
 # If gender equals male
 if gender == 'Male':
