@@ -17,7 +17,7 @@ st.subheader('*Hello beautiful! Congratulations on starting your journey to be t
 
 # Q1: Please input your height (cms)
 with st.sidebar:
-height = float(st.slider('How tall are you, in centimeters?', 0, 250, 125)) # Question, Min, Max, Default Value
+    height = float(st.slider('How tall are you, in centimeters?', 0, 250, 125)) # Question, Min, Max, Default Value
 
 # Q2: Please input your weight (kgs)
 weight = float(st.slider('How much do you weigh, in kilograms?', 0, 250, 125)) # Question, Min, Max, Default Value
