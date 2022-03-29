@@ -103,24 +103,24 @@ if goal == 'Lose Weight':
     food_cals_loss = cal_change_rate * 0.50 / 7.0
     # Calculate Weekly Calorie Loss from Workout Percentage
     workout_cals_loss = cal_change_rate * 0.50
-    st.subheader('Great! Now lets talk fitness')
-    
+        
     # Q1: How many days a week would you like to workout?
-    workout_days = st.selectbox(
-     'How many days a week would you like to workout?',
-     ('1', '2', '3', '4', '5', '6', '7'))
-    st.write('You selected:', workout_days)
+    with st.sidebar:
+        st.subheader('Great! Now lets talk fitness')
+        workout_days = st.selectbox(
+         'How many days a week would you like to workout?',
+         ('1', '2', '3', '4', '5', '6', '7'))
+        st.write('You selected:', workout_days)
     # Calculate exercise_duration
     exercise_duration = ( workout_cals_loss / avg_workout_cals ) * (1.0 / float(workout_days) ) * 60.0
 
-    st.write('Alright last question! Do you have any specific body part that you would really like to tone?')
     # Options: Arms, Legs, Back, Abs, Glutes, Posture
+    with st.sidebar:
     body_specific_vids = st.selectbox(
-     'Select what area you would like to focus on',
+     'Do you have any specific body part that you would really like to tone? Select what area you would like to focus on',
      ('Arms', 'Legs', 'Back', 'Abs', 'Glutes', 'Posture'))
-    st.write('You selected:', body_specific_vids)
 
-    st.write('You did it! Now sit back, relax, and wait a few seconds while we create your personalized nutrtion and fitness plan.')
+    st.subheader('You did it! Now sit back, relax, and wait a few seconds while we create your personalized nutrtion and fitness plan.')
     # Calculate Alloted Daily Calories 
     daily_cals = BMR_calories - food_cals_loss
     # Lookup Macros from DB based on daily_cals (using recommendend 30% carbs, 40% protein, 30% fats balance)
