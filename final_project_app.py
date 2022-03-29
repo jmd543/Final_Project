@@ -10,11 +10,9 @@ from scipy import interpolate
 import datetime
 import time
 
-Name = "Happy, Heathly & You"
-
 # USER INPUT SECTION
 with st.sidebar:
-    st.title("\u0332".join(text))
+    st.title("\u0332".join("Happy, Heathly & You"))
     st.subheader('*Hello beautiful! Congratulations on starting your journey to be the best version of you! Lets get started!*')
     
     # Q1: Please input your height (cms)
