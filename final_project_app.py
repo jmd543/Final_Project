@@ -39,14 +39,12 @@ activity = 'General'
 activity_interpolator = interpolate.interp1d([59.1, 70.5, 81.8, 93.2],avg_workout_cals_1hr.loc[avg_workout_cals_1hr.Activity == activity,['59.1', '70.5', '81.8', '93.2']], fill_value = 'extrapolate')
 avg_workout_cals = activity_interpolator(weight)
 
-st.write('Awesome! Now tell us what are your health goals?')
-# Please select your health goal
-# Option 1: Maintain weight
-# Option 2: Lose weight
-# Option 3: Gain weight
-goal = st.radio(
- "Please select your health goal",
- ('Maintain Weight', 'Lose Weight', 'Gain Weight'))
+with st.sidebar:
+    st.write('Awesome! Now tell us what are your health goals?')
+    # Please select your health goal
+    goal = st.radio(
+     "Please select your health goal",
+     ('Maintain Weight', 'Lose Weight', 'Gain Weight'))
 
 if goal == 'Maintain Weight':
      st.write('You selected Maintain Weight!')
