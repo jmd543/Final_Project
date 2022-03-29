@@ -13,9 +13,8 @@ import time
 st.title("Happy, Heathly & You")
 
 # User Input Section on Streamlit
-st.write('Hello beautiful! Congratulations on starting your journey to be the best version of you! Lets get started!')
+st.header('*Hello beautiful! Congratulations on starting your journey to be the best version of you! Lets get started!*')
 
-st.write('In order to make your personalized nutrition & fitness planner we will need just a litte information about yourself.')
 # Q1: Please input your height (cms)
 height = float(st.slider('How tall are you, in centimeters?', 0, 250, 125)) # Question, Min, Max, Default Value
 
