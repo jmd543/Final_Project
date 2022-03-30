@@ -189,7 +189,7 @@ if goal == 'Gain Weight':
     # Calculate Calorie Change Rate
     cal_change_rate = weight_change_rate * 7700.0
     # Calculate Daily Calorie Loss from Food Percentage
-    food_cals_loss = cal_change_rate * 0.50 / 7.0
+    food_cals_loss = cal_change_rate * 0.75 / 7.0
 
     # Options: Arms, Legs, Back, Abs, Glutes, Posture
     with st.sidebar:
