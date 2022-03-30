@@ -6,7 +6,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from scipy import interpolate
 import datetime
 import time
 
@@ -37,8 +36,7 @@ else:
 # Lookup avg_workout_cals_1hr from DB
 avg_workout_cals_1hr = pd.read_csv('Average_calories_burned_1hr_v2.csv')
 activity = 'General'
-activity_interpolator = interpolate.interp1d([59.1, 70.5, 81.8, 93.2],avg_workout_cals_1hr.loc[avg_workout_cals_1hr.Activity == activity,['59.1', '70.5', '81.8', '93.2']], fill_value = 'extrapolate')
-avg_workout_cals = activity_interpolator(weight)
+avg_workout_cals = np.interp(weight, [20, 59.1, 70.5, 81.8, 93.2, 250], avg_workout_cals_1hr.loc[avg_workout_cals_1hr.Activity == activity,['20', '59.1', '70.5', '81.8', '93.2', '250']])
 
 with st.sidebar:
     # Please select your health goal
