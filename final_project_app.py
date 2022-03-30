@@ -154,9 +154,18 @@ if goal == 'Lose Weight':
 
     # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration, Fitness Videos)
     col1, col2, col3 = st.columns(3)
-    col1.metric("Calories to Burn (per week)", np.round(workout_cals_loss,0))
-    col2.metric("Workout Days", workout_days)
-    col3.metric("Exercise Duration (in minutes)", np.round(exercise_duration,0))
+    with col1:
+        image = Image.open('Exercise_icon.png')
+        st.image(image)    
+        col1.metric("Calories to Burn (per week)", np.round(workout_cals_loss,0))
+    with col2:
+        image = Image.open('workout.png')
+        st.image(image)    
+        col2.metric("Workout Days", workout_days)
+    with col3:
+        image = Image.open('time.png')
+        st.image(image)    
+        col3.metric("Exercise Duration (in minutes)", np.round(exercise_duration,0))
    
     st.subheader('Helpful Food Calorie / Macro Database', 'https://www.calorieking.com/us/en/foods/')
     
