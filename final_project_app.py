@@ -34,9 +34,10 @@ else:
     BMR_calories = 447.593 + (9.247*weight) + (3.098*height) - (4.330*age)
 
 # Lookup avg_workout_cals_1hr from DB
-avg_workout_cals_1hr = pd.read_csv('Average_calories_burned_1hr.csv')
-activity = 'General'
-avg_workout_cals = np.interp(weight, [20, 59.1, 70.5, 81.8, 93.2, 250], avg_workout_cals_1hr.loc[avg_workout_cals_1hr.Activity == activity,['20', '59.1', '70.5', '81.8', '93.2', '250']])
+# avg_workout_cals_1hr = pd.read_csv('Average_calories_burned_1hr.csv')
+xp = [20.0,   59.1,  70.5,  81.8,  93.2, 250.0]
+fp = [139.0, 325.0, 387.0, 449.0, 512.0, 853.0]
+avg_workout_cals = np.interp(weight, xp, fp)
 
 with st.sidebar:
     # Please select your health goal
