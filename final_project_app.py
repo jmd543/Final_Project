@@ -139,10 +139,18 @@ if goal == 'Lose Weight':
         image = Image.open('Calories_icon.png')
         st.image(image)
         col1.metric("Daily Calories", np.round(daily_cals,0))
-        
-    col2.metric("Daily Proteins (g)", np.round(daily_proteins,0))
-    col3.metric("Daily Carbs (g)", np.round(daily_carbs,0))
-    col4.metric("Daily Fats (g)", np.round(daily_fats,0))
+    with col2:
+        image = Image.open('Protein_icon.png')
+        st.image(image)
+        col2.metric("Daily Proteins (g)", np.round(daily_proteins,0))
+    with col3:
+        image = Image.open('Carbs_icon.png')
+        st.image(image)
+        col3.metric("Daily Carbs (g)", np.round(daily_carbs,0))
+    with col4:
+        image = Image.open('Fats_icon.png')
+        st.image(image)        
+        col4.metric("Daily Fats (g)", np.round(daily_fats,0))
 
     # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration, Fitness Videos)
     col1, col2, col3 = st.columns(3)
@@ -218,10 +226,22 @@ if goal == 'Gain Weight':
 
     # Output Daily Nutrition Plan (Daily Calories, Macros, Food Database)
     col1, col2, col3, col4 = st.columns(4)
-    col1.metric("Daily Calories", np.round(daily_cals,0))
-    col2.metric("Daily Proteins (g)", np.round(daily_proteins,0))
-    col3.metric("Daily Carbs (g)", np.round(daily_carbs,0))
-    col4.metric("Daily Fats (g)", np.round(daily_fats,0))
+    with col1:
+        image = Image.open('Calories_icon.png')
+        st.image(image)
+        col1.metric("Daily Calories", np.round(daily_cals,0))
+    with col2:
+        image = Image.open('Protein_icon.png')
+        st.image(image)
+        col2.metric("Daily Proteins (g)", np.round(daily_proteins,0))
+    with col3:
+        image = Image.open('Carbs_icon.png')
+        st.image(image)
+        col3.metric("Daily Carbs (g)", np.round(daily_carbs,0))
+    with col4:
+        image = Image.open('Fats_icon.png')
+        st.image(image)        
+        col4.metric("Daily Fats (g)", np.round(daily_fats,0))
     
     st.write('Helpful Food Calorie / Macro Database', 'https://www.calorieking.com/us/en/foods/')
 
