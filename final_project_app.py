@@ -200,7 +200,7 @@ if goal == 'Gain Weight':
     st.title('*You did it! Here is your personalized nutrtion and fitness plan! Good luck!*')
     
     # Calculate Alloted Daily Calories 
-    daily_cals = BMR_calories - food_cals_loss
+    daily_cals = BMR_calories + food_cals_loss
     # Calculate Macros from DB based on daily_cals (using recommendend 30% carbs, 40% protein, 30% fats balance)
     # Grams per calories calculated based on https://drbillsukala.com/macronutrient-calorie-gram-calculator/
     mac_cals_in = [500.0, 1000.0, 1500.0, 2000.0, 2500.0, 3000.0, 3500.0, 4000.0]
