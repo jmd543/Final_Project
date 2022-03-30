@@ -8,7 +8,7 @@ import pandas as pd
 import numpy as np
 import datetime
 import time
-
+from PIL import Image
 
 # USER INPUT SECTION
 with st.sidebar:
@@ -135,7 +135,11 @@ if goal == 'Lose Weight':
 
     # Output Daily Nutrition Plan (Daily Calories, Macros, Food Database)
     col1, col2, col3, col4 = st.columns(4)
-    col1.metric("Daily Calories", np.round(daily_cals,0))
+    with col1:
+        image = Image.open('Calories_icon.png')
+        st.image(image)
+        col1.metric("Daily Calories", np.round(daily_cals,0))
+        
     col2.metric("Daily Proteins (g)", np.round(daily_proteins,0))
     col3.metric("Daily Carbs (g)", np.round(daily_carbs,0))
     col4.metric("Daily Fats (g)", np.round(daily_fats,0))
