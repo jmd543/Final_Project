@@ -34,7 +34,7 @@ else:
     BMR_calories = 447.593 + (9.247*weight) + (3.098*height) - (4.330*age)
 
 # Lookup avg_workout_cals_1hr from DB
-avg_workout_cals_1hr = pd.read_csv('Average_calories_burned_1hr_v2.csv')
+avg_workout_cals_1hr = pd.read_csv('Average_calories_burned_1hr.csv')
 activity = 'General'
 avg_workout_cals = np.interp(weight, [20, 59.1, 70.5, 81.8, 93.2, 250], avg_workout_cals_1hr.loc[avg_workout_cals_1hr.Activity == activity,['20', '59.1', '70.5', '81.8', '93.2', '250']])
 
@@ -126,18 +126,15 @@ if goal == 'Lose Weight':
     # Grams per calories calculated based on https://drbillsukala.com/macronutrient-calorie-gram-calculator/
     macro_db = pd.read_csv('Calorie_Marcos_DB.csv')
     macro_pro = 'Proteins'
-    macro_pro_interp = interpolate.interp1d([500,1000,1500,2000,2500,3000,3500,4000],macro_db.loc[macro_db.Macros == macro_pro,['500', '1000', '1500', '2000', '2500', '3000', '3500', '4000']], fill_value = 'extrapolate')
-    daily_proteins = macro_pro_interp(daily_cals)
+    daily_proteins = np.interp(daily_cals, [500,1000,1500,2000,2500,3000,3500,4000],macro_db.loc[macro_db.Macros == macro_pro,['500', '1000', '1500', '2000', '2500', '3000', '3500', '4000']])
 
     macro_db = pd.read_csv('Calorie_Marcos_DB.csv')
     macro_carb = 'Carbs'
-    macro_carb_interp = interpolate.interp1d([500,1000,1500,2000,2500,3000,3500,4000],macro_db.loc[macro_db.Macros == macro_carb,['500', '1000', '1500', '2000', '2500', '3000', '3500', '4000']], fill_value = 'extrapolate')
-    daily_carbs = macro_carb_interp(daily_cals)
+    daily_carbs = np.interp(daily_cals, [500,1000,1500,2000,2500,3000,3500,4000],macro_db.loc[macro_db.Macros == macro_carb,['500', '1000', '1500', '2000', '2500', '3000', '3500', '4000']])
 
     macro_db = pd.read_csv('Calorie_Marcos_DB.csv')
     macro_fat = 'Fats'
-    macro_fat_interp = interpolate.interp1d([500,1000,1500,2000,2500,3000,3500,4000],macro_db.loc[macro_db.Macros == macro_fat,['500', '1000', '1500', '2000', '2500', '3000', '3500', '4000']], fill_value = 'extrapolate')
-    daily_fats = macro_fat_interp(daily_cals)
+    daily_fats = np.interp(daily_cals, [500,1000,1500,2000,2500,3000,3500,4000],macro_db.loc[macro_db.Macros == macro_fat,['500', '1000', '1500', '2000', '2500', '3000', '3500', '4000']])
 
     # Output Daily Nutrition Plan (Daily Calories, Macros, Food Database)
     col1, col2, col3, col4 = st.columns(4)
