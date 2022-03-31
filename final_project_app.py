@@ -136,7 +136,7 @@ if goal == 'Lose Weight':
     # Output Daily Nutrition Plan (Daily Calories, Macros, Food Database)
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        image = Image.open('Calories_icon_V3.png')
+        image = Image.open('Calories_icon_V4.png')
         st.image(image)
         col1.metric("Daily Calories", np.round(daily_cals,0))
     with col2:
