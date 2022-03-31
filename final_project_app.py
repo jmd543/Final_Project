@@ -140,30 +140,30 @@ if goal == 'Lose Weight':
         st.image(image)
         col1.metric("Daily Calories", np.round(daily_cals,0))
     with col2:
-        image = Image.open('Protein_icon.png')
+        image = Image.open('Protein_icon_V5.png')
         st.image(image)
         col2.metric("Daily Proteins (g)", np.round(daily_proteins,0))
     with col3:
-        image = Image.open('Carbs_icon.png')
+        image = Image.open('Carbs_icon_V5.png')
         st.image(image)
         col3.metric("Daily Carbs (g)", np.round(daily_carbs,0))
     with col4:
-        image = Image.open('Fats_icon.png')
+        image = Image.open('Fats_icon_V5.png')
         st.image(image)        
         col4.metric("Daily Fats (g)", np.round(daily_fats,0))
 
     # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration, Fitness Videos)
     col1, col2, col3 = st.columns(3)
     with col1:
-        image = Image.open('Exercise_icon.png')
+        image = Image.open('Exercise_icon_V5.png')
         st.image(image)    
         col1.metric("Calories to Burn (per week)", np.round(workout_cals_loss,0))
     with col2:
-        image = Image.open('workout.png')
+        image = Image.open('workout_V5.png')
         st.image(image)    
         col2.metric("Workout Days", workout_days)
     with col3:
-        image = Image.open('time.png')
+        image = Image.open('time_V5.png')
         st.image(image)    
         col3.metric("Exercise Duration (in minutes)", np.round(exercise_duration,0))
    
@@ -236,19 +236,19 @@ if goal == 'Gain Weight':
     # Output Daily Nutrition Plan (Daily Calories, Macros, Food Database)
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        image = Image.open('Calories_icon.png')
+        image = Image.open('Calories_icon_V5.png')
         st.image(image)
         col1.metric("Daily Calories", np.round(daily_cals,0))
     with col2:
-        image = Image.open('Protein_icon.png')
+        image = Image.open('Protein_icon_V5.png')
         st.image(image)
         col2.metric("Daily Proteins (g)", np.round(daily_proteins,0))
     with col3:
-        image = Image.open('Carbs_icon.png')
+        image = Image.open('Carbs_icon_V5.png')
         st.image(image)
         col3.metric("Daily Carbs (g)", np.round(daily_carbs,0))
     with col4:
-        image = Image.open('Fats_icon.png')
+        image = Image.open('Fats_icon_V5.png')
         st.image(image)        
         col4.metric("Daily Fats (g)", np.round(daily_fats,0))
     
