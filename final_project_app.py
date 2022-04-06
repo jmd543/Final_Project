@@ -51,7 +51,7 @@ else:
    
 # MAINTAIN WEIGHT SECTION
 if goal == 'Maintain Weight':
-    st.button('Get Results'):   
+   if st.button('Get Results'):   
         st.title('You are already awesome, keep doing what your doing!')
   
         body_specific_vids = st.selectbox(
