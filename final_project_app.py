@@ -51,7 +51,7 @@ else:
    
 # MAINTAIN WEIGHT SECTION
 if goal == 'Maintain Weight':
-   if st.button('Get Results'):   
+   if st.button('Get Results!'):   
         st.title('You are already awesome, keep doing what your doing!')
   
         body_specific_vids = st.selectbox(
@@ -119,69 +119,70 @@ if goal == 'Lose Weight':
         body_specific_vids = st.selectbox(
          'Do you have a specific body part that you would really like to tone? Select it below',
          ('Arms', 'Legs', 'Back', 'Abs', 'Glutes', 'Posture'))
-
-    st.title('*You did it! Here is your personalized nutrtion and fitness plan! Good luck!*')
-    # Calculate Alloted Daily Calories 
-    daily_cals = BMR_calories - food_cals_loss
-    # Calculate Macros from DB based on daily_cals (using recommendend 30% carbs, 40% protein, 30% fats balance)
-    # Grams per calories calculated based on https://drbillsukala.com/macronutrient-calorie-gram-calculator/
-    mac_cals_in = [500.0, 1000.0, 1500.0, 2000.0, 2500.0, 3000.0, 3500.0, 4000.0]
-    macro_pro_in = [38.0,	75.0,	113.0,	150.0,	188.0,	225.0,	263.0,	300.0]
-    macro_carb_in = [50.0,	100.0,	150.0,	200.0,	250.0,	300.0,	350.0,	400.0]
-    macro_fat_in = [17.0,	33.0,	50.0,	67.0,	83.0,	100.0,	117.0,	133.0]
-
-    daily_proteins = np.interp(daily_cals, mac_cals_in, macro_pro_in)
-    daily_carbs = np.interp(daily_cals, mac_cals_in, macro_carb_in)
-    daily_fats = np.interp(daily_cals, mac_cals_in, macro_fat_in)
-
-    # Output Daily Nutrition Plan (Daily Calories, Macros, Food Database)
-    col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        image = Image.open('Calories_icon_V5.png')
-        st.image(image)
-        col1.metric("Daily Calories", np.round(daily_cals,0))
-    with col2:
-        image = Image.open('Protein_icon_V5.png')
-        st.image(image)
-        col2.metric("Daily Proteins (g)", np.round(daily_proteins,0))
-    with col3:
-        image = Image.open('Carbs_icon_V5.png')
-        st.image(image)
-        col3.metric("Daily Carbs (g)", np.round(daily_carbs,0))
-    with col4:
-        image = Image.open('Fats_icon_V5.png')
-        st.image(image)        
-        col4.metric("Daily Fats (g)", np.round(daily_fats,0))
-
-    # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration, Fitness Videos)
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        image = Image.open('Exercise_icon_V5.png')
-        st.image(image)    
-        col1.metric("Calories to Burn (per week)", np.round(workout_cals_loss,0))
-    with col2:
-        image = Image.open('workout_V5.png')
-        st.image(image)    
-        col2.metric("Workout Days", workout_days)
-    with col3:
-        image = Image.open('time_V5.png')
-        st.image(image)    
-        col3.metric("Exercise Duration (in minutes)", np.round(exercise_duration,0))
-   
-    st.subheader('Helpful Food Calorie / Macro Database', 'https://www.calorieking.com/us/en/foods/')
     
-    if body_specific_vids == 'Arms':
-        st.video('https://www.youtube.com/watch?v=hAGfBjvIRFI&list=LL&index=8')  
-    if body_specific_vids == 'Legs':
-        st.video('https://www.youtube.com/watch?v=xpzMr3nSOIE&list=LL&index=10') 
-    if body_specific_vids == 'Back':
-        st.video('https://www.youtube.com/watch?v=5hVAUMZkJq4&list=LL&index=7&t=127s') 
-    if body_specific_vids == 'Abs':
-        st.video('https://www.youtube.com/watch?v=hxjKZcOT17E&list=LL&index=9') 
-    if body_specific_vids == 'Glutes':
-        st.video('https://www.youtube.com/watch?v=i1ZzdBgLtZg') 
-    if body_specific_vids == 'Posture':
-        st.video('https://www.youtube.com/watch?v=5R54QoUbbow') 
+    if st.button('Get Results!'):
+        st.title('*You did it! Here is your personalized nutrtion and fitness plan! Good luck!*')
+        # Calculate Alloted Daily Calories 
+        daily_cals = BMR_calories - food_cals_loss
+        # Calculate Macros from DB based on daily_cals (using recommendend 30% carbs, 40% protein, 30% fats balance)
+        # Grams per calories calculated based on https://drbillsukala.com/macronutrient-calorie-gram-calculator/
+        mac_cals_in = [500.0, 1000.0, 1500.0, 2000.0, 2500.0, 3000.0, 3500.0, 4000.0]
+        macro_pro_in = [38.0,	75.0,	113.0,	150.0,	188.0,	225.0,	263.0,	300.0]
+        macro_carb_in = [50.0,	100.0,	150.0,	200.0,	250.0,	300.0,	350.0,	400.0]
+        macro_fat_in = [17.0,	33.0,	50.0,	67.0,	83.0,	100.0,	117.0,	133.0]
+
+        daily_proteins = np.interp(daily_cals, mac_cals_in, macro_pro_in)
+        daily_carbs = np.interp(daily_cals, mac_cals_in, macro_carb_in)
+        daily_fats = np.interp(daily_cals, mac_cals_in, macro_fat_in)
+
+        # Output Daily Nutrition Plan (Daily Calories, Macros, Food Database)
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            image = Image.open('Calories_icon_V5.png')
+            st.image(image)
+            col1.metric("Daily Calories", np.round(daily_cals,0))
+        with col2:
+            image = Image.open('Protein_icon_V5.png')
+            st.image(image)
+            col2.metric("Daily Proteins (g)", np.round(daily_proteins,0))
+        with col3:
+            image = Image.open('Carbs_icon_V5.png')
+            st.image(image)
+            col3.metric("Daily Carbs (g)", np.round(daily_carbs,0))
+        with col4:
+            image = Image.open('Fats_icon_V5.png')
+            st.image(image)        
+            col4.metric("Daily Fats (g)", np.round(daily_fats,0))
+
+        # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration, Fitness Videos)
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            image = Image.open('Exercise_icon_V5.png')
+            st.image(image)    
+            col1.metric("Calories to Burn (per week)", np.round(workout_cals_loss,0))
+        with col2:
+            image = Image.open('workout_V5.png')
+            st.image(image)    
+            col2.metric("Workout Days", workout_days)
+        with col3:
+            image = Image.open('time_V5.png')
+            st.image(image)    
+            col3.metric("Exercise Duration (in minutes)", np.round(exercise_duration,0))
+
+        st.subheader('Helpful Food Calorie / Macro Database', 'https://www.calorieking.com/us/en/foods/')
+
+        if body_specific_vids == 'Arms':
+            st.video('https://www.youtube.com/watch?v=hAGfBjvIRFI&list=LL&index=8')  
+        if body_specific_vids == 'Legs':
+            st.video('https://www.youtube.com/watch?v=xpzMr3nSOIE&list=LL&index=10') 
+        if body_specific_vids == 'Back':
+            st.video('https://www.youtube.com/watch?v=5hVAUMZkJq4&list=LL&index=7&t=127s') 
+        if body_specific_vids == 'Abs':
+            st.video('https://www.youtube.com/watch?v=hxjKZcOT17E&list=LL&index=9') 
+        if body_specific_vids == 'Glutes':
+            st.video('https://www.youtube.com/watch?v=i1ZzdBgLtZg') 
+        if body_specific_vids == 'Posture':
+            st.video('https://www.youtube.com/watch?v=5R54QoUbbow') 
 
 # GAIN WEIGHT SECTION
 if goal == 'Gain Weight':
@@ -219,52 +220,53 @@ if goal == 'Gain Weight':
          'Do you have a specific body part that you would really like to tone? Select it below',
          ('Arms', 'Legs', 'Back', 'Abs', 'Glutes', 'Posture'))
 
-    st.title('*You did it! Here is your personalized nutrtion and fitness plan! Good luck!*')
+    if st.button('Get Results!'):
+        st.title('*You did it! Here is your personalized nutrtion and fitness plan! Good luck!*')
     
-    # Calculate Alloted Daily Calories 
-    daily_cals = BMR_calories + food_cals_loss
-    # Calculate Macros from DB based on daily_cals (using recommendend 30% carbs, 40% protein, 30% fats balance)
-    # Grams per calories calculated based on https://drbillsukala.com/macronutrient-calorie-gram-calculator/
-    mac_cals_in = [500.0, 1000.0, 1500.0, 2000.0, 2500.0, 3000.0, 3500.0, 4000.0]
-    macro_pro_in = [38.0,	75.0,	113.0,	150.0,	188.0,	225.0,	263.0,	300.0]
-    macro_carb_in = [50.0,	100.0,	150.0,	200.0,	250.0,	300.0,	350.0,	400.0]
-    macro_fat_in = [17.0,	33.0,	50.0,	67.0,	83.0,	100.0,	117.0,	133.0]
+        # Calculate Alloted Daily Calories 
+        daily_cals = BMR_calories + food_cals_loss
+        # Calculate Macros from DB based on daily_cals (using recommendend 30% carbs, 40% protein, 30% fats balance)
+        # Grams per calories calculated based on https://drbillsukala.com/macronutrient-calorie-gram-calculator/
+        mac_cals_in = [500.0, 1000.0, 1500.0, 2000.0, 2500.0, 3000.0, 3500.0, 4000.0]
+        macro_pro_in = [38.0,	75.0,	113.0,	150.0,	188.0,	225.0,	263.0,	300.0]
+        macro_carb_in = [50.0,	100.0,	150.0,	200.0,	250.0,	300.0,	350.0,	400.0]
+        macro_fat_in = [17.0,	33.0,	50.0,	67.0,	83.0,	100.0,	117.0,	133.0]
 
-    daily_proteins = np.interp(daily_cals, mac_cals_in, macro_pro_in)
-    daily_carbs = np.interp(daily_cals, mac_cals_in, macro_carb_in)
-    daily_fats = np.interp(daily_cals, mac_cals_in, macro_fat_in)
+        daily_proteins = np.interp(daily_cals, mac_cals_in, macro_pro_in)
+        daily_carbs = np.interp(daily_cals, mac_cals_in, macro_carb_in)
+        daily_fats = np.interp(daily_cals, mac_cals_in, macro_fat_in)
 
-    # Output Daily Nutrition Plan (Daily Calories, Macros, Food Database)
-    col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        image = Image.open('Calories_icon_V5.png')
-        st.image(image)
-        col1.metric("Daily Calories", np.round(daily_cals,0))
-    with col2:
-        image = Image.open('Protein_icon_V5.png')
-        st.image(image)
-        col2.metric("Daily Proteins (g)", np.round(daily_proteins,0))
-    with col3:
-        image = Image.open('Carbs_icon_V5.png')
-        st.image(image)
-        col3.metric("Daily Carbs (g)", np.round(daily_carbs,0))
-    with col4:
-        image = Image.open('Fats_icon_V5.png')
-        st.image(image)        
-        col4.metric("Daily Fats (g)", np.round(daily_fats,0))
-    
-    st.write('Helpful Food Calorie / Macro Database', 'https://www.calorieking.com/us/en/foods/')
+        # Output Daily Nutrition Plan (Daily Calories, Macros, Food Database)
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            image = Image.open('Calories_icon_V5.png')
+            st.image(image)
+            col1.metric("Daily Calories", np.round(daily_cals,0))
+        with col2:
+            image = Image.open('Protein_icon_V5.png')
+            st.image(image)
+            col2.metric("Daily Proteins (g)", np.round(daily_proteins,0))
+        with col3:
+            image = Image.open('Carbs_icon_V5.png')
+            st.image(image)
+            col3.metric("Daily Carbs (g)", np.round(daily_carbs,0))
+        with col4:
+            image = Image.open('Fats_icon_V5.png')
+            st.image(image)        
+            col4.metric("Daily Fats (g)", np.round(daily_fats,0))
 
-    # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration, Fitness Videos)
-    if body_specific_vids == 'Arms':
-        st.video('https://www.youtube.com/watch?v=hAGfBjvIRFI&list=LL&index=8')  
-    if body_specific_vids == 'Legs':
-        st.video('https://www.youtube.com/watch?v=xpzMr3nSOIE&list=LL&index=10') 
-    if body_specific_vids == 'Back':
-        st.video('https://www.youtube.com/watch?v=5hVAUMZkJq4&list=LL&index=7&t=127s') 
-    if body_specific_vids == 'Abs':
-        st.video('https://www.youtube.com/watch?v=hxjKZcOT17E&list=LL&index=9') 
-    if body_specific_vids == 'Glutes':
-        st.video('https://www.youtube.com/watch?v=i1ZzdBgLtZg') 
-    if body_specific_vids == 'Posture':
-        st.video('https://www.youtube.com/watch?v=5R54QoUbbow') 
+        st.write('Helpful Food Calorie / Macro Database', 'https://www.calorieking.com/us/en/foods/')
+
+        # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration, Fitness Videos)
+        if body_specific_vids == 'Arms':
+            st.video('https://www.youtube.com/watch?v=hAGfBjvIRFI&list=LL&index=8')  
+        if body_specific_vids == 'Legs':
+            st.video('https://www.youtube.com/watch?v=xpzMr3nSOIE&list=LL&index=10') 
+        if body_specific_vids == 'Back':
+            st.video('https://www.youtube.com/watch?v=5hVAUMZkJq4&list=LL&index=7&t=127s') 
+        if body_specific_vids == 'Abs':
+            st.video('https://www.youtube.com/watch?v=hxjKZcOT17E&list=LL&index=9') 
+        if body_specific_vids == 'Glutes':
+            st.video('https://www.youtube.com/watch?v=i1ZzdBgLtZg') 
+        if body_specific_vids == 'Posture':
+            st.video('https://www.youtube.com/watch?v=5R54QoUbbow') 
