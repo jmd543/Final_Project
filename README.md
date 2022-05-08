@@ -1,4 +1,4 @@
-# Customized Nutrition & Fitness Planner Application - Happy, Healthy, & You
+# Customized Nutrition & Fitness Planner - Happy, Healthy, & You
 This application was created for Cornell Systems Engineering Course SYSEN-5160 for the final project assignment. The application is utilized in Streamlit and the code is based in python. All of the files in this repository link directly to the Streamlit Application. If information is changed in the repository, the code will also need to be updated, if not the application will break.
 
 ## What it does
@@ -11,13 +11,13 @@ Instead of struggling though diet fads, workout trends, and all the misinformati
 ## Results based on Health Goals
 
 ### Maintain Weight
-![maintain_weight](figures/res_temp_dist.png)
+![maintain_weight](maintain_weight.png)
 
 ### Lose Weight
-![lose_weight](figures/res_cross_section.png)
+![lose_weight](lose_weight.png)
 
 ### Gain Weight
-![gain_weight](figures/res_cross_section.png)
+![gain_weight](gain_weight.png)
 
 ## How to run the application
  - Open with Streamlit: 
