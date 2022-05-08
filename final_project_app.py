@@ -169,7 +169,7 @@ if goal == 'Lose Weight':
             st.image(image)    
             col3.metric("Exercise Duration (in minutes)", np.round(exercise_duration,0))
 
-        st.subheader('Helpful Food Calorie / Macro Database', 'https://www.calorieking.com/us/en/foods/')
+        st.write('Helpful Food Calorie / Macro Database', 'https://www.calorieking.com/us/en/foods/')
 
         if body_specific_vids == 'Arms':
             st.video('https://www.youtube.com/watch?v=hAGfBjvIRFI&list=LL&index=8')  
