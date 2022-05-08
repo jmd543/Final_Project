@@ -23,7 +23,7 @@ Instead of struggling though diet fads, workout trends, and all the misinformati
 ![gain_weight](gain_weight.png)
 
 ## How to run the application
- - Open with Streamlit: 
+ - Open with Streamlit 
 
 ## Citation
 
