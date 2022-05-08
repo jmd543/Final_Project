@@ -32,7 +32,7 @@ Please cite our work if you decide to use this for your own research.
 ### APA
 
 ```
-Donahue, J., 2022. Customized Nutrition & Fitness Planner Application with Streamlit. [online] https://cornellsystemsengineering.github.io/SYSEN-5160/
+Donahue, J., 2022. Customized Nutrition & Fitness Planner Application with Streamlit. [online] TBD
 ```
 
 ### Work continuation / future improvements
