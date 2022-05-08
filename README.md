@@ -11,12 +11,15 @@ Instead of struggling though diet fads, workout trends, and all the misinformati
 ## Results based on Health Goals
 
 ### Maintain Weight
+
 ![maintain_weight](maintain_weight.png)
 
 ### Lose Weight
+
 ![lose_weight](lose_weight.png)
 
 ### Gain Weight
+
 ![gain_weight](gain_weight.png)
 
 ## How to run the application
@@ -29,7 +32,7 @@ Please cite our work if you decide to use this for your own research.
 ### APA
 
 ```
-Donahue, J., 2022. Customized Nutrition & Fitness Planner Application with Streamlit.
+Donahue, J., 2022. Customized Nutrition & Fitness Planner Application with Streamlit. [online] https://cornellsystemsengineering.github.io/SYSEN-5160/
 ```
 
 ### Work continuation / future improvements
