@@ -12,15 +12,15 @@ Instead of struggling though diet fads, workout trends, and all the misinformati
 
 ### Maintain Weight
 
-![maintain_weight](maintain_weight.png)
+![maintain_weight](maintain_weight.PNG)
 
 ### Lose Weight
 
-![lose_weight](lose_weight.png)
+![lose_weight](lose_weight.PNG)
 
 ### Gain Weight
 
-![gain_weight](gain_weight.png)
+![gain_weight](gain_weight.PNG)
 
 ## How to run the application
  - Open with Streamlit 
