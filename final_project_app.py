@@ -70,9 +70,9 @@ if goal == 'Maintain Weight':
         if body_specific_vids == 'Posture':
            st.video('https://www.youtube.com/watch?v=5R54QoUbbow')
         
-   if st.button('Get Results!'):   
-        st.title('You are already awesome, keep doing what your doing!')
-  
+       if st.button('Get Results!'):   
+            st.title('You are already awesome, keep doing what your doing!')
+
 
 # LOSE WEIGHT SECTION
 if goal == 'Lose Weight':
