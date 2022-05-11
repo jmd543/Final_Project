@@ -52,9 +52,7 @@ else:
    
 # MAINTAIN WEIGHT SECTION
 if goal == 'Maintain Weight':
-   if st.button('Get Results!'):   
-        st.title('You are already awesome, keep doing what your doing!')
-  
+    with st.sidebar:
         body_specific_vids = st.selectbox(
          'If you would like some specific body part workouts though, please click any of the options below',
          ('Arms', 'Legs', 'Back', 'Abs', 'Glutes', 'Posture'))
@@ -71,7 +69,11 @@ if goal == 'Maintain Weight':
            st.video('https://www.youtube.com/watch?v=i1ZzdBgLtZg') 
         if body_specific_vids == 'Posture':
            st.video('https://www.youtube.com/watch?v=5R54QoUbbow')
-      
+        
+   if st.button('Get Results!'):   
+        st.title('You are already awesome, keep doing what your doing!')
+  
+
 # LOSE WEIGHT SECTION
 if goal == 'Lose Weight':
     with st.sidebar:
