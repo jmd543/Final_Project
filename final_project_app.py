@@ -56,6 +56,8 @@ if goal == 'Maintain Weight':
         body_specific_vids = st.selectbox(
          'If you would like some specific body part workouts though, please click any of the options below',
          ('Arms', 'Legs', 'Back', 'Abs', 'Glutes', 'Posture'))
+        
+        if st.button('Get Results!'):
         # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration, Fitness Videos)
         if body_specific_vids == 'Arms':
            st.video('https://www.youtube.com/watch?v=hAGfBjvIRFI&list=LL&index=8')  
@@ -70,10 +72,6 @@ if goal == 'Maintain Weight':
         if body_specific_vids == 'Posture':
            st.video('https://www.youtube.com/watch?v=5R54QoUbbow')
         
-       if st.button('Get Results!'):   
-            st.title('You are already awesome, keep doing what your doing!')
-
-
 # LOSE WEIGHT SECTION
 if goal == 'Lose Weight':
     with st.sidebar:
