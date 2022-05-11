@@ -57,20 +57,20 @@ if goal == 'Maintain Weight':
          'If you would like some specific body part workouts though, please click any of the options below',
          ('Arms', 'Legs', 'Back', 'Abs', 'Glutes', 'Posture'))
         
-        if st.button('Get Results!'):
-            # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration, Fitness Videos)
-            if body_specific_vids == 'Arms':
-               st.video('https://www.youtube.com/watch?v=hAGfBjvIRFI&list=LL&index=8')  
-            if body_specific_vids == 'Legs':
-               st.video('https://www.youtube.com/watch?v=xpzMr3nSOIE&list=LL&index=10') 
-            if body_specific_vids == 'Back':
-               st.video('https://www.youtube.com/watch?v=5hVAUMZkJq4&list=LL&index=7&t=127s') 
-            if body_specific_vids == 'Abs':
-               st.video('https://www.youtube.com/watch?v=hxjKZcOT17E&list=LL&index=9') 
-            if body_specific_vids == 'Glutes':
-               st.video('https://www.youtube.com/watch?v=i1ZzdBgLtZg') 
-            if body_specific_vids == 'Posture':
-               st.video('https://www.youtube.com/watch?v=5R54QoUbbow')
+    if st.button('Get Results!'):
+        # Output Weekly Fitness Plan (Calories to Burn, Workout days, Exercise Duration, Fitness Videos)
+        if body_specific_vids == 'Arms':
+           st.video('https://www.youtube.com/watch?v=hAGfBjvIRFI&list=LL&index=8')  
+        if body_specific_vids == 'Legs':
+           st.video('https://www.youtube.com/watch?v=xpzMr3nSOIE&list=LL&index=10') 
+        if body_specific_vids == 'Back':
+           st.video('https://www.youtube.com/watch?v=5hVAUMZkJq4&list=LL&index=7&t=127s') 
+        if body_specific_vids == 'Abs':
+           st.video('https://www.youtube.com/watch?v=hxjKZcOT17E&list=LL&index=9') 
+        if body_specific_vids == 'Glutes':
+           st.video('https://www.youtube.com/watch?v=i1ZzdBgLtZg') 
+        if body_specific_vids == 'Posture':
+           st.video('https://www.youtube.com/watch?v=5R54QoUbbow')
         
 # LOSE WEIGHT SECTION
 if goal == 'Lose Weight':
